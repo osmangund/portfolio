@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap");
+
+:root {
+  --background-color: #242424;
+  --accent-color: mediumpurple;
+  --black: #010101;
+  --purple: #685ad3;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--background-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Space Grotesk", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}

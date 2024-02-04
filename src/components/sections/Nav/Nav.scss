@@ -1,0 +1,84 @@
+$mobile: 768px;
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-inline: 90px;
+  font-family: "Manrope", sans-serif;
+  line-height: 2.5;
+
+  #logo {
+    font-size: 1.8rem;
+  }
+
+  #bars-checkbox {
+    display: none;
+  }
+
+  .bars-label {
+    display: none;
+    cursor: pointer;
+    .bars {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+        font-size: 1.8rem;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    padding-inline: 25px;
+    .bars-label {
+      display: block;
+    }
+    ul {
+      position: fixed;
+      top: 40px;
+      left: -100%;
+
+      width: 100%;
+      height: 100vh;
+
+      gap: 5rem;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--background-color);
+      text-align: center;
+
+      z-index: 1;
+      transition: all 0.5s;
+      li {
+        a {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    #bars-checkbox:checked ~ ul {
+      left: 0;
+    }
+  }
+}
