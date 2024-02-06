@@ -8,14 +8,14 @@ const animateTrailer = (mousetrail, e) => {
       left: `${clientX}px`,
       top: `${clientY}px`,
     },
-    { duration: 3500, fill: "forwards" }
+    { duration: 4000, fill: "forwards" }
   )
 }
 
 export default function MouseTrail() {
   useEffect(() => {
     const mousetrail = document.getElementById("mouse-trail")
-    document.body.addEventListener("mouseover", (e) => {
+    window.addEventListener("mousemove", (e) => {
       animateTrailer(mousetrail, e)
     })
   }, [])
@@ -23,7 +23,7 @@ export default function MouseTrail() {
   return (
     <div id="mouse-trail-wrapper">
       <div id="mouse-trail" />
-      <div id="blur"></div>
+      <div id="blur" />
     </div>
   )
 }

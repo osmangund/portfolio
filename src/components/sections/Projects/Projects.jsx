@@ -3,12 +3,12 @@ import "./Projects.scss"
 import MacWindowEffect from "../../MacWindowEffect/MacWindowEffect"
 import { projectContents } from "./projectContents"
 
-function Project({ project: { title, body, tags } }) {
+function Project({ project: { title, body, tags, color } }) {
   let titleToDashed = title.toLowerCase().split(" ").join("-")
   const src = `/imgs/${titleToDashed}.png`
 
   return (
-    <div className="project">
+    <div className={`project ${titleToDashed}`}>
       <div className="project__image">
         <MacWindowEffect />
         <a
@@ -35,6 +35,7 @@ function Project({ project: { title, body, tags } }) {
             target="_blank"
             rel="noreferrer"
             className="button"
+            data-color={color}
           >
             GitHub
           </a>
@@ -43,6 +44,7 @@ function Project({ project: { title, body, tags } }) {
             target="_blank"
             rel="noreferrer"
             className="button"
+            data-color={color}
           >
             Live
           </a>
@@ -67,5 +69,6 @@ Project.propTypes = {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    color: PropTypes.string,
   }),
 }

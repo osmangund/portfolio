@@ -12,7 +12,7 @@ const scrollIconVariants = {
       repeat: Infinity,
       ease: "easeInOut",
       duration: 0.5,
-      delay: 3,
+      delay: 2.5,
       repeatType: "reverse",
     },
   },
@@ -36,7 +36,12 @@ const headerAnims = {
 
 export default function Header() {
   return (
-    <motion.header variants={headerAnims} whileInView="end" initial="start">
+    <motion.header
+      variants={headerAnims}
+      initial="start"
+      whileInView="end"
+      viewport={{ once: true, amount: 0.5 }}
+    >
       <motion.div variants={headerAnims}>
         <motion.h1 variants={headerAnims}>
           Hi, I&apos;m Osman. <span className="interactable">🙋🏽‍♂️</span>
@@ -52,6 +57,7 @@ export default function Header() {
         whileInView="end"
         initial="start"
         id="scroll__icon__wrapper"
+        viewport={{ once: true, amount: 0.5 }}
       >
         <ChevronDown id="scroll__icon" />
       </motion.div>
