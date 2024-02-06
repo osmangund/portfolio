@@ -46,6 +46,7 @@ $accent-color: mediumpurple;
 
     .project__content {
       height: 100%;
+      min-height: 500px;
       padding: 3rem;
       background-color: var(--background-color);
 
