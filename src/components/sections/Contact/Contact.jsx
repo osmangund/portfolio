@@ -25,15 +25,33 @@ export default function Contact() {
         </div>
         <form action="">
           <div className="input">
-            <input type="text" name="name" id="name" required />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              className="input-field"
+            />
             <label htmlFor="name">Full name</label>
           </div>
           <div className="input">
-            <input type="email" name="email" id="email" required />
+            <input
+              type="text"
+              name="email"
+              id="email"
+              required
+              className="input-field"
+            />
             <label htmlFor="email">Email</label>
           </div>
           <div className="input">
-            <textarea type="text" name="message" id="message" required />
+            <textarea
+              type="text"
+              name="message"
+              id="message"
+              required
+              className="input-field"
+            />
             <label htmlFor="message">Hi Osman, I have an idea...</label>
           </div>
           <button>Submit</button>

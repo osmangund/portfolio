@@ -61,8 +61,7 @@ $mobile: 768px;
           padding: 12px 12px;
         }
 
-        input,
-        textarea {
+        .input-field {
           border: 0;
           font-size: 2rem;
           padding: 12px 28px;
@@ -72,7 +71,8 @@ $mobile: 768px;
 
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-          &:focus {
+          &:focus,
+          &:valid {
             outline: 0;
             border-bottom-color: var(--purple);
             & + label {
