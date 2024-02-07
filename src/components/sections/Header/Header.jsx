@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { ChevronDown } from "../../icons/ChevronDown"
 import "./Header.scss"
 
+const delay = 2.5
+
 const scrollIconVariants = {
   start: {
     y: 0,
@@ -12,7 +14,7 @@ const scrollIconVariants = {
       repeat: Infinity,
       ease: "easeInOut",
       duration: 0.5,
-      delay: 2.5,
+      delay: delay,
       repeatType: "reverse",
     },
   },
@@ -34,6 +36,13 @@ const headerAnims = {
   },
 }
 
+const highlightBgAnims = {
+  start: {
+    width: 0,
+  },
+  end: { width: "113%", transition: { delay: delay - 0.25 } },
+}
+
 export default function Header() {
   return (
     <motion.header
@@ -49,7 +58,15 @@ export default function Header() {
         <motion.h2 variants={headerAnims}>Front End Developer</motion.h2>
         <motion.p variants={headerAnims}>
           I love building and creating on web. Especially with{" "}
-          <span className="highlight">React.</span>
+          <motion.span className="highlight">
+            React.
+            <motion.span
+              variants={highlightBgAnims}
+              initial="start"
+              whileInView="end"
+              className="background"
+            />
+          </motion.span>
         </motion.p>
       </motion.div>
       <motion.div

@@ -22,12 +22,18 @@ header {
     font-size: 2rem;
     .highlight {
       color: var(--accent-color);
-      &::after {
-        content: "";
+      position: relative;
+
+      .background {
         position: absolute;
-        display: inline-block;
-        width: 100%;
-        background-color: var(--accent-color);
+        width: 113%;
+        height: 120%;
+        top: -3px;
+        left: 0;
+        rotate: -3deg;
+        scale: 1.15;
+        z-index: -1;
+        background-color: black;
       }
     }
   }

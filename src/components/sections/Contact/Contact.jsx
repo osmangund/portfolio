@@ -1,10 +1,29 @@
 import { GithubLogo } from "../../icons/Github"
 import { LinkedinLogo } from "../../icons/Linkedin"
 import "./Contact.scss"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import emailjs from "@emailjs/browser"
+import PropTypes from "prop-types"
 
-function ContactForm() {
+const InputField = ({ name, label, type = "text" }) => {
+  return (
+    <div className="input">
+      <input
+        type={type}
+        name={name}
+        id={name}
+        required
+        placeholder=""
+        className="input-field"
+      />
+      <label htmlFor={name}>{label}</label>
+    </div>
+  )
+}
+
+const ContactForm = () => {
+  const [formsent, setFormSent] = useState(false)
+
   const form = useRef()
 
   const sendEmail = (e) => {
@@ -12,14 +31,16 @@ function ContactForm() {
 
     emailjs
       .sendForm("service_ezyym3u", "template_nveerrx", form.current, {
-        publicKey: "j2SKL1A1mLoqZEVlf",
+        publicKey: "YwULCmPz0-uMpW_yr",
       })
       .then(
         () => {
-          console.log("SUCCESS!")
+          e.target.reset()
+          setFormSent(true)
         },
         (error) => {
           console.log("FAILED...", error.text)
+          setFormSent(false)
         }
       )
   }
@@ -27,38 +48,29 @@ function ContactForm() {
   return (
     <>
       <form ref={form} onSubmit={sendEmail}>
-        <div className="input">
-          <input
-            type="text"
-            name="user_name"
-            id="user_name"
-            required
-            className="input-field"
-          />
-          <label htmlFor="user_name">Full name</label>
-        </div>
-        <div className="input">
-          <input
-            type="text"
-            name="user_email"
-            id="user_email"
-            required
-            className="input-field"
-          />
-          <label htmlFor="user_email">Email</label>
-        </div>
-        <div className="input">
-          <textarea
-            type="text"
-            name="message"
-            id="message"
-            required
-            className="input-field"
-          />
-          <label htmlFor="message">Hi Osman, I have an idea...</label>
-        </div>
+        <InputField name="user_name" label="Full name" />
+        <InputField name="user_email" label="Email" />
+        <InputField name="message" label="Hi Osman, I have an idea..." />
         <button>Submit</button>
       </form>
+      <div className="form__info__card">
+        {formsent ? (
+          <>
+            <h1>Success!</h1>
+            <p>
+              You have successfully sent your message. I&apos;ll try to reply
+              back in 24 hours.
+            </p>
+          </>
+        ) : (
+          <>
+            <h1>Oh...</h1>
+            <p>
+              There was a problem sending your message. Please try again later.
+            </p>
+          </>
+        )}
+      </div>
     </>
   )
 }
@@ -85,6 +97,7 @@ export default function Contact() {
           </a>
         </div>
         <ContactForm />
+
         <p id="brand">
           <b>osmangund</b>® 2024. All rights reserved.
         </p>
@@ -94,4 +107,10 @@ export default function Contact() {
       </div>
     </section>
   )
+}
+
+InputField.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
 }
