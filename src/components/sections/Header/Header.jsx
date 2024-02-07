@@ -46,7 +46,7 @@ export default function Header() {
         <motion.h1 variants={headerAnims}>
           Hi, I&apos;m Osman. <span className="interactable">🙋🏽‍♂️</span>
         </motion.h1>
-        <motion.h2 variants={headerAnims}>Junior Front End Developer</motion.h2>
+        <motion.h2 variants={headerAnims}>Front End Developer</motion.h2>
         <motion.p variants={headerAnims}>
           I love building and creating on web. Especially with{" "}
           <span className="highlight">React.</span>

@@ -1,7 +1,7 @@
 export const projectContents = [
   {
     title: "News Page",
-    body: "Practised UI/UX design. Articles on this news page app are reusable components. Used styled-components to style. Works without an error on mobile devices.",
+    body: "Practised UI/UX design on this project. Considered which layout would be the best, examined font families and font sizes, tried to match colors. Articles on this page are reusable components from React, this means the project can be easily expanded. Used styled-components for styling.",
     tags: ["React", "styled-components"],
   },
   {
@@ -11,7 +11,7 @@ export const projectContents = [
   },
   {
     title: "Data Visualization Projects",
-    body: "Worked with five different APIs and used D3.js to display them. Created a bar chart, scatter plot, heat map, choropleth map, and a treemap. With the use of React, merged all the projects into one app. On treemap, handled three different datasets on single page.",
+    body: "Worked with five different datasets and used D3.js to display them. Created a bar chart, scatter plot, heat map, choropleth map, and a treemap. With the use of React, merged all projects into one app. On treemap, handled three different datasets on single page.",
     tags: ["HTML", "CSS", "React", "D3", "APIs"],
   },
   {

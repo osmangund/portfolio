@@ -1,6 +1,67 @@
 import { GithubLogo } from "../../icons/Github"
 import { LinkedinLogo } from "../../icons/Linkedin"
 import "./Contact.scss"
+import { useRef } from "react"
+import emailjs from "@emailjs/browser"
+
+function ContactForm() {
+  const form = useRef()
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm("service_ezyym3u", "template_nveerrx", form.current, {
+        publicKey: "j2SKL1A1mLoqZEVlf",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!")
+        },
+        (error) => {
+          console.log("FAILED...", error.text)
+        }
+      )
+  }
+
+  return (
+    <>
+      <form ref={form} onSubmit={sendEmail}>
+        <div className="input">
+          <input
+            type="text"
+            name="user_name"
+            id="user_name"
+            required
+            className="input-field"
+          />
+          <label htmlFor="user_name">Full name</label>
+        </div>
+        <div className="input">
+          <input
+            type="text"
+            name="user_email"
+            id="user_email"
+            required
+            className="input-field"
+          />
+          <label htmlFor="user_email">Email</label>
+        </div>
+        <div className="input">
+          <textarea
+            type="text"
+            name="message"
+            id="message"
+            required
+            className="input-field"
+          />
+          <label htmlFor="message">Hi Osman, I have an idea...</label>
+        </div>
+        <button>Submit</button>
+      </form>
+    </>
+  )
+}
 
 export default function Contact() {
   return (
@@ -23,39 +84,7 @@ export default function Contact() {
             <LinkedinLogo />
           </a>
         </div>
-        <form action="">
-          <div className="input">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              className="input-field"
-            />
-            <label htmlFor="name">Full name</label>
-          </div>
-          <div className="input">
-            <input
-              type="text"
-              name="email"
-              id="email"
-              required
-              className="input-field"
-            />
-            <label htmlFor="email">Email</label>
-          </div>
-          <div className="input">
-            <textarea
-              type="text"
-              name="message"
-              id="message"
-              required
-              className="input-field"
-            />
-            <label htmlFor="message">Hi Osman, I have an idea...</label>
-          </div>
-          <button>Submit</button>
-        </form>
+        <ContactForm />
         <p id="brand">
           <b>osmangund</b>® 2024. All rights reserved.
         </p>
