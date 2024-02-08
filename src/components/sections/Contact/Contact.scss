@@ -6,6 +6,7 @@ $mobile: 768px;
   background-color: white;
   color: black;
   font-family: "Manrope", sans-serif;
+  position: relative;
 
   #contact__info,
   #contact__image {
@@ -114,28 +115,7 @@ $mobile: 768px;
         }
       }
     }
-    .form__info__card {
-      position: absolute;
-      bottom: 10px;
-      width: 75%;
 
-      background-color: var(--background-color);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 5px;
-      h1,
-      p {
-        margin: 0;
-        line-height: 1.5;
-        letter-spacing: 0.5px;
-      }
-      h1 {
-        font-size: 4rem;
-      }
-      p {
-        font-size: 2rem;
-      }
-    }
     #brand {
       margin-top: 5rem;
       font-size: 1.3rem;
@@ -150,6 +130,31 @@ $mobile: 768px;
       object-fit: cover;
     }
   }
+  .form__info__card {
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+
+    background-color: var(--background-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    h1,
+    p {
+      margin: 0;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  // Mobile
+
   @media (max-width: $mobile) {
     flex-direction: column-reverse;
     #contact__info,

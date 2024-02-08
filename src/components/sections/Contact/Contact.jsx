@@ -1,7 +1,7 @@
 import { GithubLogo } from "../../icons/Github"
 import { LinkedinLogo } from "../../icons/Linkedin"
 import "./Contact.scss"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import emailjs from "@emailjs/browser"
 import PropTypes from "prop-types"
 
@@ -22,8 +22,6 @@ const InputField = ({ name, label, type = "text" }) => {
 }
 
 const ContactForm = () => {
-  const [formsent, setFormSent] = useState(false)
-
   const form = useRef()
 
   const sendEmail = (e) => {
@@ -36,11 +34,11 @@ const ContactForm = () => {
       .then(
         () => {
           e.target.reset()
-          setFormSent(true)
+          setFormSent("success")
         },
         (error) => {
           console.log("FAILED...", error.text)
-          setFormSent(false)
+          setFormSent("fail")
         }
       )
   }
@@ -53,29 +51,42 @@ const ContactForm = () => {
         <InputField name="message" label="Hi Osman, I have an idea..." />
         <button>Submit</button>
       </form>
-      <div className="form__info__card">
-        {formsent ? (
-          <>
-            <h1>Success!</h1>
-            <p>
-              You have successfully sent your message. I&apos;ll try to reply
-              back in 24 hours.
-            </p>
-          </>
-        ) : (
-          <>
-            <h1>Oh...</h1>
-            <p>
-              There was a problem sending your message. Please try again later.
-            </p>
-          </>
-        )}
-      </div>
     </>
   )
 }
 
 export default function Contact() {
+  const [formsent, setFormSent] = useState(null)
+  const FormSuccess = () => {
+    useEffect(() => {
+      setTimeout(() => {
+        setFormSent(null)
+      }, 3000)
+    })
+    return (
+      <div className="form__info__card">
+        <p>Thanks for reaching out! I&apos;ll get back to you soon.</p>
+      </div>
+    )
+  }
+
+  const FormFail = () => {
+    useEffect(() => {
+      setTimeout(() => {
+        setFormSent(null)
+      }, 3000)
+    })
+    return (
+      <div className="form__info__card">
+        <p>Oops! Something went wrong. Please try again later.</p>
+      </div>
+    )
+  }
+
+  const InfoCard = () => {
+    if (formsent === "success") return <FormSuccess />
+    if (formsent === "fail") return <FormFail />
+  }
   return (
     <section id="contact">
       <div id="contact__info">
@@ -105,6 +116,8 @@ export default function Contact() {
       <div id="contact__image">
         <img src="imgs/contact.jpg" alt="" />
       </div>
+      <InfoCard />
+      <FormSuccess />
     </section>
   )
 }
