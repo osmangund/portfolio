@@ -121,7 +121,7 @@ $mobile: 768px;
       font-size: 1.3rem;
       font-weight: 300;
       .highlight {
-        font-weight: 600  ;
+        font-weight: 600;
       }
     }
   }
@@ -172,8 +172,9 @@ $mobile: 768px;
     }
     #contact__info {
       padding-inline: 2rem;
+      text-align: center;
       h1 {
-        font-size: 3.5rem;
+        font-size: 6rem;
       }
 
       form {
@@ -198,6 +199,7 @@ $mobile: 768px;
       #brand {
         margin-top: 3rem;
         font-size: 1rem;
+        text-align: center;
       }
     }
   }

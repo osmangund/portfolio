@@ -16,6 +16,7 @@ const InputField = ({ element = "input", name, label, type = "text" }) => {
           id={name}
           required
           placeholder=""
+          maxLength="40"
           className="input-field"
         />
       ) : (
@@ -24,6 +25,7 @@ const InputField = ({ element = "input", name, label, type = "text" }) => {
           id={name}
           required
           placeholder=""
+          maxLength="400"
           className="input-field"
         />
       )}
@@ -38,12 +40,12 @@ const sendSuccessMessage = () => {
     {
       duration: 3000,
       style: {
-        border: "1px solid var(--accent-color)",
+        border: "1px solid green",
         padding: "16px",
         fontSize: "1.5rem",
       },
       iconTheme: {
-        primary: "var(--accent-color)",
+        primary: "green",
         secondary: "#FFFAEE",
       },
     }
@@ -88,7 +90,7 @@ const ContactForm = () => {
     <>
       <form ref={form} onSubmit={sendEmail}>
         <InputField name="user_name" label="Full name" />
-        <InputField name="user_email" label="Email" />
+        <InputField name="user_email" label="Email" type="email" />
         <InputField
           element="textarea"
           name="message"
@@ -123,7 +125,8 @@ export default function Contact() {
         </div>
         <ContactForm />
         <p id="brand">
-          <span className="highlight">osmangund</span>® 2024. All rights reserved.
+          <span className="highlight">osmangund</span>® 2024. All rights
+          reserved.
         </p>
       </div>
       <div id="contact__image">
