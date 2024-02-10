@@ -2,20 +2,28 @@ import { useEffect } from "react"
 import { Bars } from "../icons/Bars"
 import "./Nav.scss"
 import PropTypes from "prop-types"
+import { HashLink, NavHashLink } from "react-router-hash-link"
+import { handleNavHashLink, handleNavLink } from "../../utils/links"
 
-const links = [
-  { title: "Projects", href: "/#projects" },
-  { title: "Book Notes", href: "/#/book-notes" },
-  { title: "Letters", href: "#" },
-  { title: "Contact", href: "#contact" },
+const navTitles = [
+  { title: "Projects" },
+  { title: "Book Notes", hashLink: false },
+  { title: "Letters" },
+  { title: "Contact" },
 ]
 
-const NavLink = ({ title, href }) => {
-  return (
+const NavLink = ({ link: { title, hashLink = true } }) => {
+  return hashLink ? (
     <li>
-      <a href={href} className="interactable">
+      <NavHashLink to={handleNavHashLink(title)} className="interactable">
         {title}
-      </a>
+      </NavHashLink>
+    </li>
+  ) : (
+    <li>
+      <HashLink to={handleNavLink(title)} className="interactable">
+        {title}
+      </HashLink>
     </li>
   )
 }
@@ -52,8 +60,8 @@ export default function Nav() {
         <Bars className="bars" />
       </label>
       <ul>
-        {links?.map((link, i) => (
-          <NavLink key={i} title={link.title} href={link.href} />
+        {navTitles?.map((link, i) => (
+          <NavLink key={i} link={link} />
         ))}
       </ul>
     </nav>
@@ -61,6 +69,8 @@ export default function Nav() {
 }
 
 NavLink.propTypes = {
-  title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  link: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    hashLink: PropTypes.bool,
+  }).isRequired,
 }

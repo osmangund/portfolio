@@ -5,9 +5,12 @@ section.book-section {
   display: flex;
   justify-content: center;
   font-size: 1.8rem;
-  font-family: "Inter", sans-serif;
-  margin-block-start: 6rem;
+  font-family: "Poppins", sans-serif;
+  padding-block: 6rem;
   letter-spacing: 0.5px;
+  background-color: white;
+  color: black;
+
   article.book {
     width: 50vw;
 
@@ -40,21 +43,24 @@ section.book-section {
       gap: 2rem;
       li.quote {
         border-left: 1.618px solid var(--accent-color);
-        padding-left: 1rem;
-        line-height: 2;
+        padding-inline-start: 1rem;
       }
     }
     .seperator {
       border-bottom: 1px solid gray;
     }
     .share-links {
+      margin-block-start: 1rem;
       svg {
         width: 32px;
         height: 32px;
         cursor: pointer;
+        path {
+          fill: black;
+        }
       }
       .share-link.icon {
-        rotate: 15deg;
+        rotate: 10deg;
       }
     }
   }

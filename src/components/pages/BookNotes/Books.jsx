@@ -2,18 +2,14 @@ import "./Books.scss"
 import PropTypes from "prop-types"
 import { books } from "./bookContents"
 import { useEffect } from "react"
-import { titleToDashed } from "../../../utils/titleToDashed"
+import { book, bookImg } from "../../../utils/links"
 
 function BookCard({ book: { title, author } }) {
   return (
     <article className="book-card">
       <div className="book__image">
-        <a href={`/book-notes/${titleToDashed(title)}/`}>
-          <img
-            src={`/images/books/${titleToDashed(title)}.jpg`}
-            alt=""
-            aria-hidden
-          />
+        <a href={book(title)}>
+          <img src={bookImg(title)} alt="" aria-hidden />
         </a>
       </div>
       <div className="book__content">
