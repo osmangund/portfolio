@@ -6,7 +6,6 @@ import { titleToDashed } from "../../../utils/titleToDashed"
 
 function Project({ project: { title, body, tags, color } }) {
   const dashedTitle = titleToDashed(title)
-
   const src = `/images/projects/${dashedTitle}.png`
 
   return (
