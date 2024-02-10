@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client"
 import App from "./App.jsx"
 import "./index.css"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import Books from "./components/pages/BookNotes/Books.jsx"
 import Nav from "./components/Nav/Nav.jsx"
 import { books } from "./components/pages/BookNotes/bookContents.js"
