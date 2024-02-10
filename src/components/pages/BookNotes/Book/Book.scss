@@ -1,0 +1,77 @@
+$mobile: 768px;
+
+section.book-section {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-family: "Inter", sans-serif;
+  margin-block-start: 6rem;
+  letter-spacing: 0.5px;
+  article.book {
+    width: 50vw;
+
+    align-content: center;
+    h4.book-date {
+      font-weight: 300;
+      font-size: 1.5rem;
+    }
+    p.book-impressions,
+    li.quote {
+      font-weight: 200;
+    }
+    h1.book-title {
+      font-size: 4rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin: 0;
+    }
+    ul.quotes {
+      list-style: none;
+      padding-inline: 0;
+      padding-block: 2rem;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      li.quote {
+        border-left: 1.618px solid var(--accent-color);
+        padding-left: 1rem;
+        line-height: 2;
+      }
+    }
+    .seperator {
+      border-bottom: 1px solid gray;
+    }
+    .share-links {
+      svg {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+      }
+      .share-link.icon {
+        rotate: 15deg;
+      }
+    }
+  }
+  @media (max-width: $mobile) {
+    article.book {
+      max-width: 90vw;
+      h1.book-title {
+        font-size: 2.5rem;
+      }
+      h3 {
+        font-size: 2rem;
+      }
+      ul.quotes {
+        li.quote {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

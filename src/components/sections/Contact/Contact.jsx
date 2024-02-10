@@ -130,7 +130,7 @@ export default function Contact() {
         </p>
       </div>
       <div id="contact__image">
-        <img src="imgs/contact.jpg" alt="" />
+        <img src="images/contact.jpg" alt="" />
       </div>
       <Toaster position="top-right" />
     </section>

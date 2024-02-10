@@ -2,17 +2,19 @@ import PropTypes from "prop-types"
 import "./Projects.scss"
 import MacWindowEffect from "../../MacWindowEffect/MacWindowEffect"
 import { projectContents } from "./projectContents"
+import { titleToDashed } from "../../../utils/titleToDashed"
 
 function Project({ project: { title, body, tags, color } }) {
-  let titleToDashed = title.toLowerCase().split(" ").join("-")
-  const src = `/imgs/${titleToDashed}.png`
+  const dashedTitle = titleToDashed(title)
+
+  const src = `/images/projects/${dashedTitle}.png`
 
   return (
-    <div className={`project ${titleToDashed}`}>
+    <div className={`project ${dashedTitle}`}>
       <div className="project__image">
         <MacWindowEffect />
         <a
-          href={`https://osmangund.github.io/${titleToDashed}/`}
+          href={`https://osmangund.github.io/${dashedTitle}/`}
           target="_blank"
           rel="noreferrer"
         >
@@ -31,7 +33,7 @@ function Project({ project: { title, body, tags, color } }) {
         <p className="body">{body}</p>
         <div className="project__links">
           <a
-            href={`https://github.com/osmangund/${titleToDashed}`}
+            href={`https://github.com/osmangund/${dashedTitle}`}
             target="_blank"
             rel="noreferrer"
             className="button"
@@ -40,7 +42,7 @@ function Project({ project: { title, body, tags, color } }) {
             GitHub
           </a>
           <a
-            href={`https://osmangund.github.io/${titleToDashed}/`}
+            href={`https://osmangund.github.io/${dashedTitle}/`}
             target="_blank"
             rel="noreferrer"
             className="button"

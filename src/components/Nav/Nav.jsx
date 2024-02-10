@@ -1,6 +1,24 @@
 import { useEffect } from "react"
-import { Bars } from "../../icons/Bars"
+import { Bars } from "../icons/Bars"
 import "./Nav.scss"
+import PropTypes from "prop-types"
+
+const links = [
+  { title: "Projects", href: "/#projects" },
+  { title: "Book Notes", href: "/book-notes" },
+  { title: "Letters", href: "#" },
+  { title: "Contact", href: "/#contact" },
+]
+
+const NavLink = ({ title, href }) => {
+  return (
+    <li>
+      <a href={href} className="interactable">
+        {title}
+      </a>
+    </li>
+  )
+}
 
 export default function Nav() {
   // keep track of previous scroll position
@@ -26,33 +44,23 @@ export default function Nav() {
 
   return (
     <nav>
-      <div id="logo">OG.</div>
+      <a id="logo" href="/">
+        OG.
+      </a>
       <input type="checkbox" name="bars-checkbox" id="bars-checkbox" />
       <label htmlFor="bars-checkbox" className="bars-label">
         <Bars className="bars" />
       </label>
       <ul>
-        <li>
-          <a href="#projects" className="interactable">
-            Projects
-          </a>
-        </li>
-        <li>
-          <a href="#" className="interactable">
-            Book Notes
-          </a>
-        </li>
-        <li>
-          <a href="#" className="interactable">
-            Letters
-          </a>
-        </li>
-        <li>
-          <a href="#contact" className="interactable">
-            Contact
-          </a>
-        </li>
+        {links?.map((link, i) => (
+          <NavLink key={i} title={link.title} href={link.href} />
+        ))}
       </ul>
     </nav>
   )
+}
+
+NavLink.propTypes = {
+  title: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 }
