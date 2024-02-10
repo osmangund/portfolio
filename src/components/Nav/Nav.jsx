@@ -5,9 +5,9 @@ import PropTypes from "prop-types"
 
 const links = [
   { title: "Projects", href: "/#projects" },
-  { title: "Book Notes", href: "/book-notes" },
+  { title: "Book Notes", href: "/#/book-notes" },
   { title: "Letters", href: "#" },
-  { title: "Contact", href: "/#contact" },
+  { title: "Contact", href: "#contact" },
 ]
 
 const NavLink = ({ title, href }) => {
