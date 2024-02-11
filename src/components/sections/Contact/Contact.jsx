@@ -15,7 +15,7 @@ const InputField = ({ element = "input", name, label, type = "text" }) => {
           name={name}
           id={name}
           required
-          placeholder=""
+          placeholder=" "
           maxLength="40"
           className="input-field"
         />
@@ -24,7 +24,7 @@ const InputField = ({ element = "input", name, label, type = "text" }) => {
           name={name}
           id={name}
           required
-          placeholder=""
+          placeholder=" "
           maxLength="400"
           className="input-field"
         />

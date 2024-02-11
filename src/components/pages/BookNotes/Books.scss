@@ -34,7 +34,7 @@ section#book-notes {
       position: relative;
       input {
         width: 70%;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         border: none;
         background-color: var(--background-color);
         color: white;
@@ -48,14 +48,14 @@ section#book-notes {
           & + label {
             color: var(--purple);
             transform: translateY(-2.5rem);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             padding: 0;
           }
         }
       }
       label {
         position: absolute;
-        font-size: 2rem;
+        font-size: 1.75rem;
         transition: 350ms ease-in-out;
       }
       button {

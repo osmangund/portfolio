@@ -32,15 +32,21 @@ export default function BookNotes(props) {
             <div>
               <h1>📚 Book summaries</h1>
               <p>
-                If you like books, this is for you. Join the OG Letter and
-                I&apos;ll send you on books about psychology, science,
-                marketing, sales.
+                If you like books and growth, this is for you. Join the OG
+                Letter and I&apos;ll send you on books about psychology,
+                science, marketing and sales.
               </p>
             </div>
 
             <form action="">
-              <input type="email" name="email" id="email" placeholder="" />
-              <label htmlFor="email">Your email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder=" "
+                disabled
+              />
+              <label htmlFor="email">Your favorite email</label>
               <button>Join</button>
             </form>
           </div>
