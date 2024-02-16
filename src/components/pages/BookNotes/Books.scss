@@ -32,35 +32,11 @@ section#book-notes {
       display: flex;
       gap: 2rem;
       position: relative;
-      input {
-        width: 70%;
-        font-size: 1.4rem;
-        border: none;
-        background-color: var(--background-color);
-        color: white;
-        border-bottom: 1px solid var(--accent-color);
-        padding: 1rem 0.5rem;
 
-        &:focus,
-        &:not(:placeholder-shown) {
-          outline: 0;
-          border-bottom-color: var(--purple);
-          & + label {
-            color: var(--purple);
-            transform: translateY(-2.5rem);
-            font-size: 1.5rem;
-            padding: 0;
-          }
-        }
-      }
-      label {
-        position: absolute;
-        font-size: 1.75rem;
-        transition: 350ms ease-in-out;
-      }
       button {
         border: none;
-        width: 30%;
+        width: 20%;
+        margin-top: 1.5rem;
         text-transform: uppercase;
         font-weight: bold;
         background-color: var(--accent-color);
@@ -78,6 +54,17 @@ section#book-notes {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
+
+    .arrow-icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      translate: -150% 0;
+      path {
+        fill: lightgray;
+      }
+    }
 
     .book-card {
       display: flex;
@@ -124,6 +111,9 @@ section#book-notes {
     padding: 10rem 5rem;
     #books {
       gap: 5rem;
+      .arrow-icon {
+        display: none;
+      }
       .book-card {
         width: 100%;
         margin-block-end: 0;

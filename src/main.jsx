@@ -6,7 +6,7 @@ import Books from "./components/pages/BookNotes/Books.jsx"
 import Nav from "./components/Nav/Nav.jsx"
 import { books } from "./components/pages/BookNotes/bookContents.js"
 import Book from "./components/pages/BookNotes/Book/Book.jsx"
-import { titleToDashed } from "./utils/titleToDashed.js"
+import { kebabCase } from "./utils/kebabCase.js"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         return (
           <Route
             key={book.id}
-            path={`/book-notes/${titleToDashed(book.title)}/`}
+            path={`/book-notes/${kebabCase(book.title)}/`}
             element={<Book book={book} />}
           />
         )

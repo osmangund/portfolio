@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { books } from "./bookContents"
 import { useEffect } from "react"
 import { book, bookImg } from "../../../utils/links"
+import ArrowToRight from "../../icons/ArrowToRight"
+import Input from "../../Input/Input"
 
 function BookCard({ book: { title, author } }) {
   return (
@@ -39,20 +41,14 @@ export default function BookNotes(props) {
             </div>
 
             <form action="">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder=" "
-                disabled
-              />
-              <label htmlFor="email">Your favorite email</label>
+              <Input label="Your favorite email" name="email" disabled />
               <button>Join</button>
             </form>
           </div>
-          <div className="container"></div>
+          <div className="container" />
         </div>
         <div id="books">
+          <ArrowToRight className="arrow-icon" />
           {books.map((book) => {
             return <BookCard key={book.id} book={book} />
           })}

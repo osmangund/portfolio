@@ -1,5 +1,15 @@
 $mobile: 768px;
 $accent-color: mediumpurple;
+$transition: all 350ms ease-in-out;
+
+@mixin button-text-style {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: $transition;
+}
 
 #projects {
   display: flex;
@@ -11,6 +21,7 @@ $accent-color: mediumpurple;
   .project {
     position: relative;
     display: flex;
+    justify-content: center;
 
     &:nth-child(even) {
       flex-direction: row-reverse;
@@ -31,7 +42,7 @@ $accent-color: mediumpurple;
       right: 0;
       height: 100%;
       scale: 1.1;
-      transition: all 350ms ease-in-out;
+      transition: $transition;
       img {
         display: block;
         width: 100%;
@@ -80,16 +91,14 @@ $accent-color: mediumpurple;
       }
 
       .project__links {
-        a {
-          color: $accent-color;
+        a.button {
+          @include button-text-style;
           padding: 0.5rem 1rem;
+          color: $accent-color;
+
           border: 3px solid $accent-color;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 2rem;
-          text-transform: uppercase;
           margin-inline-end: 2rem;
-          transition: all 350ms ease-in-out;
+          position: relative;
           &:hover {
             letter-spacing: 5px;
           }

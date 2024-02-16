@@ -13,24 +13,13 @@ $mobile: 768px;
   background: linear-gradient(to right, hsl(160, 34%, 51%), mediumpurple);
 
   animation: rotate 20s linear infinite;
-  filter: blur(500px);
+  filter: blur(100px);
   z-index: -2;
 
   @media (max-width: $mobile) {
     display: none;
   }
 }
-
-// #mouse-trail::after {
-//   content: "";
-//   position: absolute;
-//   border-radius: 50%;
-//   width: 300%;
-//   height: 300%;
-
-//   translate: -50% -50%;
-//   backdrop-filter: blur(300px);
-// }
 
 @keyframes rotate {
   50% {

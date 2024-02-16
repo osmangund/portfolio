@@ -2,14 +2,26 @@ import PropTypes from "prop-types"
 import "./Projects.scss"
 import MacWindowEffect from "../../MacWindowEffect/MacWindowEffect"
 import { projectContents } from "./projectContents"
-import { titleToDashed } from "../../../utils/titleToDashed"
+import { kebabCase } from "../../../utils/kebabCase"
+import { motion } from "framer-motion"
+
+const projectVariants = {
+  initial: { opacity: 0 },
+  visible: { opacity: 1, y: 0 },
+}
 
 function Project({ project: { title, body, tags, color } }) {
-  const dashedTitle = titleToDashed(title)
+  const dashedTitle = kebabCase(title)
   const src = `/images/projects/${dashedTitle}.png`
 
   return (
-    <div className={`project ${dashedTitle}`}>
+    <motion.div
+      variants={projectVariants}
+      initial="initial"
+      whileInView="visible"
+      viewport={{ amount: 0.5, once: true }}
+      className={`project ${dashedTitle}`}
+    >
       <div className="project__image">
         <MacWindowEffect />
         <a
@@ -36,22 +48,24 @@ function Project({ project: { title, body, tags, color } }) {
             target="_blank"
             rel="noreferrer"
             className="button"
+            data-text="Source code"
             data-color={color}
           >
-            GitHub
+            Source code
           </a>
           <a
             href={`https://osmangund.github.io/${dashedTitle}/`}
             target="_blank"
             rel="noreferrer"
             className="button"
+            data-text="Live"
             data-color={color}
           >
             Live
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

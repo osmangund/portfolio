@@ -3,36 +3,8 @@ import { LinkedinLogo } from "../../icons/Linkedin"
 import "./Contact.scss"
 import { useRef } from "react"
 import emailjs from "@emailjs/browser"
-import PropTypes from "prop-types"
 import toast, { Toaster } from "react-hot-toast"
-
-const InputField = ({ element = "input", name, label, type = "text" }) => {
-  return (
-    <div className="input">
-      {element === "input" ? (
-        <input
-          type={type}
-          name={name}
-          id={name}
-          required
-          placeholder=" "
-          maxLength="40"
-          className="input-field"
-        />
-      ) : (
-        <textarea
-          name={name}
-          id={name}
-          required
-          placeholder=" "
-          maxLength="400"
-          className="input-field"
-        />
-      )}
-      <label htmlFor={name}>{label}</label>
-    </div>
-  )
-}
+import Input from "../../Input/Input"
 
 const sendSuccessMessage = () => {
   return toast.success(
@@ -89,9 +61,9 @@ const ContactForm = () => {
   return (
     <>
       <form ref={form} onSubmit={sendEmail}>
-        <InputField name="user_name" label="Full name" />
-        <InputField name="user_email" label="Email" type="email" />
-        <InputField
+        <Input name="user_name" label="Full name" />
+        <Input name="user_email" label="Email" type="email" />
+        <Input
           element="textarea"
           name="message"
           label="Hi Osman, I have an idea..."
@@ -135,11 +107,4 @@ export default function Contact() {
       <Toaster position="top-right" />
     </section>
   )
-}
-
-InputField.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  element: PropTypes.string,
 }

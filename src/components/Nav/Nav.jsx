@@ -30,25 +30,25 @@ const NavLink = ({ link: { title, hashLink = true } }) => {
 
 export default function Nav() {
   // keep track of previous scroll position
-  let prevScrollPos = window.scrollY
 
   useEffect(() => {
     if (window.scrollY < 10) {
       const nav = document.querySelector("nav")
       nav.classList.add("show")
     }
+
+    let prevScrollPos = window.scrollY
+    window.addEventListener("scroll", () => {
+      const nav = document.querySelector("nav")
+      const currentScrollPos = window.scrollY
+
+      prevScrollPos > currentScrollPos
+        ? nav.classList.add("show")
+        : nav.classList.remove("show")
+
+      prevScrollPos = currentScrollPos
+    })
   }, [])
-
-  window.addEventListener("scroll", function () {
-    const nav = document.querySelector("nav")
-    const currentScrollPos = window.scrollY
-
-    prevScrollPos > currentScrollPos
-      ? nav.classList.add("show")
-      : nav.classList.remove("show")
-
-    prevScrollPos = currentScrollPos
-  })
 
   return (
     <nav>
