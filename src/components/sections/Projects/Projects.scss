@@ -21,7 +21,6 @@ $transition: all 350ms ease-in-out;
   .project {
     position: relative;
     display: flex;
-    justify-content: center;
 
     &:nth-child(even) {
       flex-direction: row-reverse;
