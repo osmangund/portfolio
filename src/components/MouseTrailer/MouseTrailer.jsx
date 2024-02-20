@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import "./MouseTrail.scss"
+import "./MouseTrailer.scss"
 
 const animateTrailer = (mousetrail, e) => {
   const { clientX, clientY } = e
@@ -12,7 +12,7 @@ const animateTrailer = (mousetrail, e) => {
   )
 }
 
-export default function MouseTrail() {
+export default function MouseTrailer() {
   useEffect(() => {
     const mousetrail = document.getElementById("mouse-trail")
     window.addEventListener("mousemove", (e) => {
@@ -21,9 +21,8 @@ export default function MouseTrail() {
   }, [])
 
   return (
-    <div id="mouse-trail-wrapper">
-      <div id="mouse-trail" />
-      <div id="blur" />
+    <div id="mouse-trail-wrapper" aria-hidden>
+      <div id="mouse-trail" aria-hidden />
     </div>
   )
 }

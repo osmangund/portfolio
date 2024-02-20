@@ -102,7 +102,10 @@ export default function Contact() {
         </p>
       </div>
       <div id="contact__image">
-        <img src="images/contact.jpg" alt="" />
+        <img
+          src="images/contact.jpg"
+          alt="Chair, laptop, table and images on the wall. Two people work vibes atmosphere."
+        />
       </div>
       <Toaster position="top-right" />
     </section>

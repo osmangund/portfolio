@@ -11,7 +11,7 @@ function BookCard({ book: { title, author } }) {
     <article className="book-card">
       <div className="book__image">
         <a href={book(title)}>
-          <img src={bookImg(title)} alt="" aria-hidden />
+          <img src={bookImg(title)} alt={`${title} book cover.`} aria-hidden />
         </a>
       </div>
       <div className="book__content">

@@ -1,4 +1,7 @@
 $mobile: 768px;
+$book-bg: white;
+$book-color: var(--background-color);
+$book-accent: var(--accent-color);
 
 section.book-section {
   min-height: 80vh;
@@ -8,8 +11,8 @@ section.book-section {
   font-family: "Poppins", sans-serif;
   padding-block: 6rem;
   letter-spacing: 0.5px;
-  background-color: white;
-  color: black;
+  background-color: $book-bg;
+  color: $book-color;
 
   article.book {
     width: 50vw;
@@ -23,10 +26,15 @@ section.book-section {
     li.quote {
       font-weight: 200;
     }
+    li.actionable-step,
+    li.quote {
+      margin-block-end: 2rem;
+    }
     h1.book-title {
       font-size: 4rem;
       font-weight: 500;
       text-transform: uppercase;
+      margin: 1.5rem 0;
     }
     h3 {
       font-size: 2.5rem;
@@ -42,7 +50,7 @@ section.book-section {
       flex-direction: column;
       gap: 2rem;
       li.quote {
-        border-left: 1.618px solid var(--accent-color);
+        border-left: 1.618px solid $book-accent;
         padding-inline-start: 1rem;
       }
     }
@@ -56,7 +64,7 @@ section.book-section {
         height: 32px;
         cursor: pointer;
         path {
-          fill: black;
+          fill: $book-color;
         }
       }
       .share-link.icon {

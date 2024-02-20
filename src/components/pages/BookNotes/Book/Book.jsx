@@ -24,7 +24,7 @@ export default function Book({
         <ul className="quotes">
           {quotes?.map((quote, index) => (
             <li key={index} className="quote">
-              {quote}
+              {`"${quote}"`}
             </li>
           ))}
         </ul>

@@ -29,7 +29,7 @@ function Project({ project: { title, body, tags, color } }) {
           target="_blank"
           rel="noreferrer"
         >
-          <img src={src} alt="" />
+          <img src={src} alt={`${title} project screenshot.`} aria-hidden />
         </a>
       </div>
       <div className="project__content">
