@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import { book, bookImg } from "../../../utils/links"
 import ArrowToRight from "../../icons/ArrowToRight"
 import Input from "../../Input/Input"
+import Form from "../../Input/Form"
 
 function BookCard({ book: { title, author } }) {
   return (
@@ -40,10 +41,9 @@ export default function BookNotes(props) {
               </p>
             </div>
 
-            <form action="">
-              <Input label="Your favorite email" name="email" disabled />
-              <button>Join</button>
-            </form>
+            <Form buttonValue="Join">
+              <Input label="Your favorite email" name="email" />
+            </Form>
           </div>
           <div className="container" />
         </div>

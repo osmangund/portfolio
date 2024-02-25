@@ -49,29 +49,6 @@ $mobile: 768px;
       textarea {
         height: 192px;
       }
-
-      button {
-        padding: 1.5rem 3rem;
-        margin-top: 1.5rem;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.5rem;
-        align-self: center;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background: var(--purple);
-
-        color: white;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-
-        cursor: pointer;
-        transition: all 350ms ease-in-out;
-        &:hover {
-          transform: scale(1.05);
-          letter-spacing: 0;
-        }
-      }
     }
 
     #brand {

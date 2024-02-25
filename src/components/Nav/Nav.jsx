@@ -2,52 +2,34 @@ import { useEffect } from "react"
 import { Bars } from "../icons/Bars"
 import "./Nav.scss"
 import PropTypes from "prop-types"
-import { HashLink, NavHashLink } from "react-router-hash-link"
-import { handleNavHashLink, handleNavLink } from "../../utils/links"
+import { HashLink } from "react-router-hash-link"
+import { handleNavPage, handleNavSection } from "../../utils/links"
 
 const navTitles = [
   { title: "Projects" },
-  { title: "Book Notes", hashLink: false },
-  { title: "Letters" },
+  { title: "Book Notes", navSection: false },
+  // { title: "Letters" },
   { title: "Contact" },
 ]
 
-const NavLink = ({ link: { title, hashLink = true } }) => {
-  return hashLink ? (
+const NavLink = ({ link: { title, navSection = true } }) => {
+  return navSection ? (
     <li>
-      <NavHashLink to={handleNavHashLink(title)} className="interactable">
-        {title}
-      </NavHashLink>
+      <HashLink to={handleNavSection(title)}>{title}</HashLink>
     </li>
   ) : (
     <li>
-      <HashLink to={handleNavLink(title)} className="interactable">
-        {title}
-      </HashLink>
+      <HashLink to={handleNavPage(title)}>{title}</HashLink>
     </li>
   )
 }
 
 export default function Nav() {
-  // keep track of previous scroll position
-
   useEffect(() => {
     if (window.scrollY < 10) {
       const nav = document.querySelector("nav")
       nav.classList.add("show")
     }
-
-    let prevScrollPos = window.scrollY
-    window.addEventListener("scroll", () => {
-      const nav = document.querySelector("nav")
-      const currentScrollPos = window.scrollY
-
-      prevScrollPos > currentScrollPos
-        ? nav.classList.add("show")
-        : nav.classList.remove("show")
-
-      prevScrollPos = currentScrollPos
-    })
   }, [])
 
   return (
@@ -71,6 +53,6 @@ export default function Nav() {
 NavLink.propTypes = {
   link: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    hashLink: PropTypes.bool,
+    navSection: PropTypes.bool,
   }).isRequired,
 }

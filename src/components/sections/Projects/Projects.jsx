@@ -4,6 +4,7 @@ import MacWindowEffect from "../../MacWindowEffect/MacWindowEffect"
 import { projectContents } from "./projectContents"
 import { kebabCase } from "../../../utils/kebabCase"
 import { motion } from "framer-motion"
+import { projectImg } from "../../../utils/links"
 
 const projectVariants = {
   initial: { opacity: 0 },
@@ -12,8 +13,7 @@ const projectVariants = {
 
 function Project({ project: { title, body, tags, color } }) {
   const dashedTitle = kebabCase(title)
-  const src = `/images/projects/${dashedTitle}.png`
-
+  const src = projectImg(title)
   return (
     <motion.div
       variants={projectVariants}
@@ -29,7 +29,12 @@ function Project({ project: { title, body, tags, color } }) {
           target="_blank"
           rel="noreferrer"
         >
-          <img src={src} alt={`${title} project screenshot.`} aria-hidden />
+          <img
+            src={src}
+            alt={`${title} project screenshot.`}
+            aria-hidden
+            loading="lazy"
+          />
         </a>
       </div>
       <div className="project__content">

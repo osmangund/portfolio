@@ -8,14 +8,13 @@ section#book-notes {
   line-height: 1.25;
 
   #book-notes__info {
-    min-height: 50vh;
     display: flex;
 
     .container {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 1rem;
     }
 
     h1 {
@@ -24,6 +23,7 @@ section#book-notes {
       margin-bottom: 2rem;
       margin: 0;
     }
+
     p {
       font-size: 1.5rem;
     }
@@ -31,30 +31,17 @@ section#book-notes {
     form {
       display: flex;
       gap: 2rem;
-      position: relative;
-
-      button {
-        border: none;
-        width: 20%;
-        margin-top: 1.5rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        background-color: var(--accent-color);
-        cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 40px,
-          rgba(0, 0, 0, 0.22) 20px 20px 20px;
-        &:hover {
-          filter: brightness(80%);
-        }
-      }
     }
   }
 
   #books {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
     position: relative;
+
+    padding-block-start: 8rem;
 
     .arrow-icon {
       position: absolute;

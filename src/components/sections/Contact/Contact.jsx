@@ -4,7 +4,8 @@ import "./Contact.scss"
 import { useRef } from "react"
 import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast"
-import Input from "../../Input/Input"
+import { Input } from "../../Input/Form"
+import Form from "../../Input/Form"
 
 const sendSuccessMessage = () => {
   return toast.success(
@@ -60,7 +61,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <form ref={form} onSubmit={sendEmail}>
+      <Form formRef={form} onSubmit={sendEmail} buttonValue="Submit">
         <Input name="user_name" label="Full name" />
         <Input name="user_email" label="Email" type="email" />
         <Input
@@ -68,8 +69,7 @@ const ContactForm = () => {
           name="message"
           label="Hi Osman, I have an idea..."
         />
-        <button>Submit</button>
-      </form>
+      </Form>
     </>
   )
 }

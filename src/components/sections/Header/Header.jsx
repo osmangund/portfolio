@@ -53,7 +53,7 @@ export default function Header() {
     >
       <motion.div variants={headerAnims}>
         <motion.h1 variants={headerAnims}>
-          Hi, I&apos;m Osman. <span className="interactable">🙋🏽‍♂️</span>
+          Hi, I&apos;m Osman. <span>🙋🏽‍♂️</span>
         </motion.h1>
         <motion.h2 variants={headerAnims}>Front End Developer</motion.h2>
         <motion.p variants={headerAnims}>
