@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast"
 import { Input } from "../../Input/Form"
 import Form from "../../Input/Form"
+import Image from "../../Image/Image"
 
 const sendSuccessMessage = () => {
   return toast.success(
@@ -102,9 +103,9 @@ export default function Contact() {
         </p>
       </div>
       <div id="contact__image">
-        <img
-          src="images/contact.jpg"
+        <Image
           alt="Chair, laptop, table and images on the wall. Two people work vibes atmosphere."
+          src="images/contact.jpg"
         />
       </div>
       <Toaster position="top-right" />

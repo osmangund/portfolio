@@ -5,6 +5,7 @@ import { projectContents } from "./projectContents"
 import { kebabCase } from "../../../utils/kebabCase"
 import { motion } from "framer-motion"
 import { projectImg } from "../../../utils/links"
+import Image from "../../Image/Image"
 
 const projectVariants = {
   initial: { opacity: 0 },
@@ -12,7 +13,6 @@ const projectVariants = {
 }
 
 function Project({ project: { title, body, tags, color } }) {
-  const dashedTitle = kebabCase(title)
   const src = projectImg(title)
   return (
     <motion.div
@@ -20,20 +20,19 @@ function Project({ project: { title, body, tags, color } }) {
       initial="initial"
       whileInView="visible"
       viewport={{ amount: 0.5, once: true }}
-      className={`project ${dashedTitle}`}
+      className={`project ${kebabCase(title)}`}
     >
       <div className="project__image">
         <MacWindowEffect />
         <a
-          href={`https://osmangund.github.io/${dashedTitle}/`}
+          href={`https://osmangund.github.io/${kebabCase(title)}/`}
           target="_blank"
           rel="noreferrer"
         >
-          <img
+          <Image
             src={src}
             alt={`${title} project screenshot.`}
-            aria-hidden
-            loading="lazy"
+            ariaHidden={true}
           />
         </a>
       </div>
@@ -49,7 +48,7 @@ function Project({ project: { title, body, tags, color } }) {
         <p className="body">{body}</p>
         <div className="project__links">
           <a
-            href={`https://github.com/osmangund/${dashedTitle}`}
+            href={`https://github.com/osmangund/${kebabCase(title)}`}
             target="_blank"
             rel="noreferrer"
             className="button"
@@ -59,7 +58,7 @@ function Project({ project: { title, body, tags, color } }) {
             Source code
           </a>
           <a
-            href={`https://osmangund.github.io/${dashedTitle}/`}
+            href={`https://osmangund.github.io/${kebabCase(title)}/`}
             target="_blank"
             rel="noreferrer"
             className="button"

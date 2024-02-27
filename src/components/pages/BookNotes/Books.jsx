@@ -6,13 +6,18 @@ import { book, bookImg } from "../../../utils/links"
 import ArrowToRight from "../../icons/ArrowToRight"
 import Input from "../../Input/Input"
 import Form from "../../Input/Form"
+import Image from "../../Image/Image"
 
 function BookCard({ book: { title, author } }) {
   return (
     <article className="book-card">
       <div className="book__image">
         <a href={book(title)}>
-          <img src={bookImg(title)} alt={`${title} book cover.`} aria-hidden />
+          <Image
+            src={bookImg(title)}
+            alt={`${title} book cover.`}
+            ariaHidden={true}
+          />
         </a>
       </div>
       <div className="book__content">
