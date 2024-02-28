@@ -12,6 +12,25 @@ const navTitles = [
   { title: "Contact" },
 ]
 
+const handleScroll = () => {
+  if (window.scrollY < 10) {
+    const nav = document.querySelector("nav")
+    nav.classList.add("show")
+  }
+
+  let prevScrollPos = window.scrollY
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector("nav")
+    const currentScrollPos = window.scrollY
+
+    prevScrollPos > currentScrollPos
+      ? nav.classList.add("show")
+      : nav.classList.remove("show")
+
+    prevScrollPos = currentScrollPos
+  })
+}
+
 const NavLink = ({ link: { title, navSection = true } }) => {
   return navSection ? (
     <li>
@@ -26,10 +45,7 @@ const NavLink = ({ link: { title, navSection = true } }) => {
 
 export default function Nav() {
   useEffect(() => {
-    if (window.scrollY < 10) {
-      const nav = document.querySelector("nav")
-      nav.classList.add("show")
-    }
+    handleScroll()
   }, [])
 
   return (
