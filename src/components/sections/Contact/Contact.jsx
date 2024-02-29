@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast"
 import { Input } from "../../Input/Form"
 import Form from "../../Input/Form"
 import Image from "../../Image/Image"
+import { motion } from "framer-motion"
 
 const sendSuccessMessage = () => {
   return toast.success(
@@ -38,6 +39,19 @@ const sendErrorMessage = () => {
       secondary: "#FFFAEE",
     },
   })
+}
+
+const logoVariants = {
+  initial: { y: 100, opacity: 0 },
+  whileInView: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut", staggerChildren: 0.3236 },
+  },
+  viewport: {
+    once: true,
+    amount: 0.5,
+  },
 }
 
 const ContactForm = () => {
@@ -79,23 +93,49 @@ export default function Contact() {
   return (
     <section id="contact">
       <div id="contact__info">
-        <h1>Let&apos;s connect!</h1>
-        <div id="links">
+        <motion.h1
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.5, ease: "easeInOut" },
+          }}
+          viewport={{
+            once: true,
+            amount: 0.5,
+          }}
+        >
+          Let&apos;s connect!
+        </motion.h1>
+        <motion.div
+          id="links"
+          variants={logoVariants}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{
+            once: true,
+            amount: 0.5,
+          }}
+        >
           <a
             href="https://github.com/osmangund/"
             target="_blank"
             rel="noreferrer"
           >
-            <GithubLogo />
+            <motion.div variants={logoVariants}>
+              <GithubLogo />
+            </motion.div>
           </a>
           <a
             href="https://linkedin.com/in/osmangund/"
             target="_blank"
             rel="noreferrer"
           >
-            <LinkedinLogo />
+            <motion.div variants={logoVariants}>
+              <LinkedinLogo />
+            </motion.div>
           </a>
-        </div>
+        </motion.div>
         <ContactForm />
         <p id="brand">
           <span className="highlight">osmangund</span>® 2024. All rights

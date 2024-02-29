@@ -31,19 +31,31 @@ const handleScroll = () => {
   })
 }
 
-const NavLink = ({ link: { title, navSection = true } }) => {
+const NavLink = ({ link: { title, navSection = true }, toggleMenu }) => {
   return navSection ? (
     <li>
-      <HashLink to={handleNavSection(title)}>{title}</HashLink>
+      <HashLink to={handleNavSection(title)} onClick={toggleMenu}>
+        {title}
+      </HashLink>
     </li>
   ) : (
     <li>
-      <HashLink to={handleNavPage(title)}>{title}</HashLink>
+      <HashLink to={handleNavPage(title)} onClick={toggleMenu}>
+        {title}
+      </HashLink>
     </li>
   )
 }
 
 export default function Nav() {
+  const toggleMenu = () => {
+    const nav = document.querySelector("nav")
+    const ul = nav.querySelector("ul")
+    const barsCheckbox = nav.querySelector("#bars-checkbox")
+    barsCheckbox.checked = false
+    ul.style.left = "100%"
+  }
+
   useEffect(() => {
     handleScroll()
   }, [])
@@ -59,7 +71,7 @@ export default function Nav() {
       </label>
       <ul>
         {navTitles?.map((link, i) => (
-          <NavLink key={i} link={link} />
+          <NavLink key={i} link={link} toggleMenu={toggleMenu} />
         ))}
       </ul>
     </nav>
@@ -71,4 +83,5 @@ NavLink.propTypes = {
     title: PropTypes.string.isRequired,
     navSection: PropTypes.bool,
   }).isRequired,
+  toggleMenu: PropTypes.func,
 }

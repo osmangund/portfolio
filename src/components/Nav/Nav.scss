@@ -62,13 +62,18 @@ nav {
   }
 
   @media (max-width: $mobile) {
-    padding-inline: 25px;
+    padding-inline: 3rem;
+
     .bars-label {
       display: block;
+      align-self: center;
+      .bars {
+        width: 36px;
+      }
     }
     ul {
       position: fixed;
-      top: 40px;
+      top: 45px;
       left: -100%;
 
       width: 100%;
@@ -90,7 +95,7 @@ nav {
     }
 
     #bars-checkbox:checked ~ ul {
-      left: 0;
+      left: 0 !important;
     }
   }
 }

@@ -4,7 +4,7 @@ import { books } from "./bookContents"
 import { useEffect } from "react"
 import { book, bookImg } from "../../../utils/links"
 import ArrowToRight from "../../icons/ArrowToRight"
-import Input from "../../Input/Input"
+import { Input } from "../../Input/Form"
 import Form from "../../Input/Form"
 import Image from "../../Image/Image"
 
@@ -50,7 +50,7 @@ export default function BookNotes(props) {
               <Input label="Your favorite email" name="email" />
             </Form>
           </div>
-          <div className="container" />
+          <div className="container empty" />
         </div>
         <div id="books">
           <ArrowToRight className="arrow-icon" />

@@ -73,8 +73,10 @@ section.book-section {
     }
   }
   @media (max-width: $mobile) {
+    justify-content: flex-start;
+    padding-inline: 1.5rem;
     article.book {
-      max-width: 90vw;
+      width: 100%;
       h1.book-title {
         font-size: 2.5rem;
       }

@@ -1,5 +1,4 @@
 import "./Form.scss"
-import "./Input.scss"
 import PropTypes from "prop-types"
 
 export function Input({ element = "input", name, label, type = "text" }) {
