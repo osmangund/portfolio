@@ -41,16 +41,12 @@ const sendErrorMessage = () => {
   })
 }
 
-const logoVariants = {
+const contactVariants = {
   initial: { y: 100, opacity: 0 },
   whileInView: {
     y: 0,
     opacity: 1,
     transition: { duration: 0.5, ease: "easeInOut", staggerChildren: 0.3236 },
-  },
-  viewport: {
-    once: true,
-    amount: 0.5,
   },
 }
 
@@ -91,38 +87,22 @@ const ContactForm = () => {
 
 export default function Contact() {
   return (
-    <section id="contact">
+    <motion.section
+      id="contact"
+      variants={contactVariants}
+      initial="initial"
+      whileInView="whileInView"
+      viewport={{ once: true, amount: 0.5 }}
+    >
       <div id="contact__info">
-        <motion.h1
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-            transition: { duration: 0.5, ease: "easeInOut" },
-          }}
-          viewport={{
-            once: true,
-            amount: 0.5,
-          }}
-        >
-          Let&apos;s connect!
-        </motion.h1>
-        <motion.div
-          id="links"
-          variants={logoVariants}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{
-            once: true,
-            amount: 0.5,
-          }}
-        >
+        <motion.h1 variants={contactVariants}>Let&apos;s connect!</motion.h1>
+        <motion.div id="links" variants={contactVariants}>
           <a
             href="https://github.com/osmangund/"
             target="_blank"
             rel="noreferrer"
           >
-            <motion.div variants={logoVariants}>
+            <motion.div variants={contactVariants}>
               <GithubLogo />
             </motion.div>
           </a>
@@ -131,16 +111,18 @@ export default function Contact() {
             target="_blank"
             rel="noreferrer"
           >
-            <motion.div variants={logoVariants}>
+            <motion.div variants={contactVariants}>
               <LinkedinLogo />
             </motion.div>
           </a>
         </motion.div>
-        <ContactForm />
-        <p id="brand">
+        <motion.div variants={contactVariants}>
+          <ContactForm />
+        </motion.div>
+        <motion.p id="brand" variants={contactVariants}>
           <span className="highlight">osmangund</span>® 2024. All rights
           reserved.
-        </p>
+        </motion.p>
       </div>
       <div id="contact__image">
         <Image
@@ -149,6 +131,6 @@ export default function Contact() {
         />
       </div>
       <Toaster position="top-right" />
-    </section>
+    </motion.section>
   )
 }

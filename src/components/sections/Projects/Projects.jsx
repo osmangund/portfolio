@@ -8,8 +8,12 @@ import { projectImg } from "../../../utils/links"
 import Image from "../../Image/Image"
 
 const projectVariants = {
-  initial: { opacity: 0 },
-  visible: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 100 },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeInOut", staggerChildren: 0.1618 },
+  },
 }
 
 function Project({ project: { title, body, tags, color } }) {
@@ -18,7 +22,7 @@ function Project({ project: { title, body, tags, color } }) {
     <motion.div
       variants={projectVariants}
       initial="initial"
-      whileInView="visible"
+      whileInView="whileInView"
       viewport={{ amount: 0.5, once: true }}
       className={`project ${kebabCase(title)}`}
     >
@@ -37,16 +41,20 @@ function Project({ project: { title, body, tags, color } }) {
         </a>
       </div>
       <div className="project__content">
-        <div className="tags">
+        <motion.div className="tags" variants={projectVariants}>
           {tags.map((tag, i) => (
             <p key={i} className="tag">
               {tag}
             </p>
           ))}
-        </div>
-        <h1 className="title">{title}</h1>
-        <p className="body">{body}</p>
-        <div className="project__links">
+        </motion.div>
+        <motion.h1 className="title" variants={projectVariants}>
+          {title}
+        </motion.h1>
+        <motion.p className="body" variants={projectVariants}>
+          {body}
+        </motion.p>
+        <motion.div className="project__links" variants={projectVariants}>
           <a
             href={`https://github.com/osmangund/${kebabCase(title)}`}
             target="_blank"
@@ -67,7 +75,7 @@ function Project({ project: { title, body, tags, color } }) {
           >
             Live
           </a>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   )
