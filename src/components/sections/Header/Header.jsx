@@ -65,6 +65,7 @@ export default function Header() {
               initial="start"
               whileInView="end"
               className="background"
+              viewport={{ once: true, amount: 0.5 }}
             />
           </motion.span>
         </motion.p>
