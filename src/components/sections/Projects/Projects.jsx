@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import "./Projects.scss"
 import MacWindowEffect from "../../MacWindowEffect/MacWindowEffect"
-import { projectContents } from "./projectContents"
+import { projectContents } from "../../../../projectContents"
 import { kebabCase } from "../../../utils/kebabCase"
 import { motion } from "framer-motion"
 import { projectImg } from "../../../utils/links"
@@ -16,8 +16,13 @@ const projectVariants = {
   },
 }
 
-function Project({ project: { title, body, tags, color } }) {
+function Project({
+  project: { title, body, tags, color, liveGhPages = true, liveLink },
+}) {
   const src = projectImg(title)
+  const liveHref = liveGhPages
+    ? `https://osmangund.github.io/${kebabCase(title)}`
+    : liveLink
   return (
     <motion.div
       variants={projectVariants}
@@ -28,11 +33,7 @@ function Project({ project: { title, body, tags, color } }) {
     >
       <div className="project__image">
         <MacWindowEffect />
-        <a
-          href={`https://osmangund.github.io/${kebabCase(title)}/`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={liveHref} target="_blank" rel="noreferrer">
           <Image
             src={src}
             alt={`${title} project screenshot.`}
@@ -66,7 +67,7 @@ function Project({ project: { title, body, tags, color } }) {
             Source code
           </a>
           <a
-            href={`https://osmangund.github.io/${kebabCase(title)}/`}
+            href={liveHref}
             target="_blank"
             rel="noreferrer"
             className="button"
@@ -97,5 +98,7 @@ Project.propTypes = {
     body: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
     color: PropTypes.string,
+    liveGhPages: PropTypes.bool,
+    liveLink: PropTypes.string,
   }),
 }
