@@ -28,7 +28,7 @@ function Project({
       variants={projectVariants}
       initial="initial"
       whileInView="whileInView"
-      viewport={{ amount: 0.5, once: true }}
+      viewport={{ amount: 0.2, once: true }}
       className={`project ${kebabCase(title)}`}
     >
       <div className="project__image">

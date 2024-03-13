@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&family=Inter&family=Poppins&display=swap");
 
+@font-face {
+  font-family: "Dance";
+  src: url("/fonts/Dance.otf") format("opentype");
+}
+
 :root {
   --background-color: #242424;
   --accent-color: mediumpurple;
