@@ -9,7 +9,7 @@ import toast, { Toaster } from "react-hot-toast"
 import { Input } from "../../Input/Form"
 import Form from "../../Input/Form"
 import Image from "../../Image/Image"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 const sendSuccessMessage = () => {
   return toast.success(
@@ -89,7 +89,7 @@ const ContactForm = () => {
 
 export default function Contact() {
   return (
-    <motion.section
+    <m.section
       id="contact"
       variants={contactVariants}
       initial="initial"
@@ -97,42 +97,44 @@ export default function Contact() {
       viewport={{ once: true, amount: 0.5 }}
     >
       <div id="contact__info">
-        <motion.h1 variants={contactVariants}>Let&apos;s connect!</motion.h1>
-        <motion.div id="links" variants={contactVariants}>
+        <m.h1 variants={contactVariants}>Let&apos;s connect!</m.h1>
+        <m.div id="links" variants={contactVariants}>
           <a
             href="https://github.com/osmangund/"
             target="_blank"
             rel="noreferrer"
+            aria-label="Go to GitHub"
           >
-            <motion.div variants={contactVariants}>
+            <m.div variants={contactVariants} aria-hidden>
               <GithubLogo />
-            </motion.div>
+            </m.div>
           </a>
           <a
             href="https://linkedin.com/in/osmangund/"
             target="_blank"
             rel="noreferrer"
+            aria-label="Go to Linkedin"
           >
-            <motion.div variants={contactVariants}>
+            <m.div variants={contactVariants} aria-hidden>
               <LinkedinLogo />
-            </motion.div>
+            </m.div>
           </a>
-        </motion.div>
-        <motion.div variants={contactVariants}>
+        </m.div>
+        <m.div variants={contactVariants}>
           <ContactForm />
-        </motion.div>
-        <motion.p id="brand" variants={contactVariants}>
+        </m.div>
+        <m.p id="brand" variants={contactVariants}>
           <span className="highlight">osmangund</span>® 2024. All rights
           reserved.
-        </motion.p>
+        </m.p>
       </div>
       <div id="contact__image">
         <Image
-          alt="Chair, laptop, table and images on the wall. Two people work vibes atmosphere."
+          alt="Chair, laptop, table and images on the wall. Two people work meeting atmosphere."
           src="/images/contact.jpg"
         />
       </div>
       <Toaster position="top-right" />
-    </motion.section>
+    </m.section>
   )
 }

@@ -8,7 +8,7 @@ section.book-section {
   display: flex;
   justify-content: center;
   font-size: 1.8rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins);
   padding-block: 6rem;
   letter-spacing: 0.5px;
   background-color: $book-bg;

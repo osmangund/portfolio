@@ -6,28 +6,23 @@ import "./Nav.scss"
 import PropTypes from "prop-types"
 import { handleNavPage, handleNavSection } from "../../utils/links"
 import Link from "next/link"
+import { dance } from "@/utils/fonts"
 
 const navTitles = [
   { title: "Projects" },
   { title: "Book Notes", navSection: false },
-  // { title: "Letters" },
   { title: "Contact" },
 ]
 
 const handleScroll = () => {
-  if (window.scrollY < 10) {
-    const nav = document.querySelector("nav")
-    nav.classList.add("show")
-  }
-
   let prevScrollPos = window.scrollY
   window.addEventListener("scroll", () => {
     const nav = document.querySelector("nav")
     const currentScrollPos = window.scrollY
 
-    prevScrollPos > currentScrollPos
-      ? nav.classList.add("show")
-      : nav.classList.remove("show")
+    prevScrollPos < currentScrollPos
+      ? nav.classList.add("hide")
+      : nav.classList.remove("hide")
 
     prevScrollPos = currentScrollPos
   })
@@ -64,7 +59,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <a id="logo" href="/">
+      <a id="logo" href="/" className={dance.variable}>
         OG.
       </a>
       <input type="checkbox" name="bars-checkbox" id="bars-checkbox" />

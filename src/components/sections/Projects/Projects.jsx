@@ -3,7 +3,7 @@ import "./Projects.scss"
 import MacWindowEffect from "@/components/MacWindowEffect/MacWindowEffect"
 import { projectContents } from "@/../content/projectContents"
 import { kebabCase } from "@/utils/kebabCase"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { projectImgLink } from "@/utils/links"
 import Image from "@/components/Image/Image"
 
@@ -24,7 +24,7 @@ function Project({
     ? `https://osmangund.github.io/${kebabCase(title)}`
     : liveLink
   return (
-    <motion.div
+    <m.div
       variants={projectVariants}
       initial="initial"
       whileInView="whileInView"
@@ -33,7 +33,12 @@ function Project({
     >
       <div className="project__image">
         <MacWindowEffect />
-        <a href={liveHref} target="_blank" rel="noreferrer">
+        <a
+          href={liveHref}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Go to ${title} demo.`}
+        >
           <Image
             src={src}
             alt={`${title} project screenshot.`}
@@ -43,20 +48,20 @@ function Project({
         </a>
       </div>
       <div className="project__content">
-        <motion.div className="tags" variants={projectVariants}>
+        <m.div className="tags" variants={projectVariants}>
           {tags.map((tag, i) => (
             <p key={i} className="tag">
               {tag}
             </p>
           ))}
-        </motion.div>
-        <motion.h1 className="title" variants={projectVariants}>
+        </m.div>
+        <m.h1 className="title" variants={projectVariants}>
           {title}
-        </motion.h1>
-        <motion.p className="body" variants={projectVariants}>
+        </m.h1>
+        <m.p className="body" variants={projectVariants}>
           {body}
-        </motion.p>
-        <motion.div className="project__links" variants={projectVariants}>
+        </m.p>
+        <m.div className="project__links" variants={projectVariants}>
           <a
             href={`https://github.com/osmangund/${kebabCase(title)}`}
             target="_blank"
@@ -77,9 +82,9 @@ function Project({
           >
             Live
           </a>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 

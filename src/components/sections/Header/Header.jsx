@@ -1,8 +1,8 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ChevronDown } from "../../icons/ChevronDown"
 import "./Header.scss"
 
-const delay = 2.5
+const delay = 0.1
 
 const scrollIconVariants = {
   start: {
@@ -45,32 +45,32 @@ const highlightBgAnims = {
 
 export default function Header() {
   return (
-    <motion.header
+    <m.header
       variants={headerAnims}
       initial="start"
       whileInView="end"
       viewport={{ once: true, amount: 0.5 }}
     >
-      <motion.div variants={headerAnims}>
-        <motion.h1 variants={headerAnims}>
+      <m.div variants={headerAnims}>
+        <m.h1 variants={headerAnims}>
           Hi, I&apos;m Osman. <span>🙋🏽‍♂️</span>
-        </motion.h1>
-        <motion.h2 variants={headerAnims}>Front End Developer</motion.h2>
-        <motion.p variants={headerAnims}>
+        </m.h1>
+        <m.h2 variants={headerAnims}>Front End Developer</m.h2>
+        <m.p variants={headerAnims}>
           I love building and creating on web. Especially with{" "}
-          <motion.span className="highlight">
+          <m.span className="highlight">
             React.
-            <motion.span
+            <m.span
               variants={highlightBgAnims}
               initial="start"
               whileInView="end"
               className="background"
               viewport={{ once: true, amount: 0.5 }}
             />
-          </motion.span>
-        </motion.p>
-      </motion.div>
-      <motion.div
+          </m.span>
+        </m.p>
+      </m.div>
+      <m.div
         variants={scrollIconVariants}
         whileInView="end"
         initial="start"
@@ -78,7 +78,7 @@ export default function Header() {
         viewport={{ once: true, amount: 0.5 }}
       >
         <ChevronDown id="scroll__icon" />
-      </motion.div>
-    </motion.header>
+      </m.div>
+    </m.header>
   )
 }

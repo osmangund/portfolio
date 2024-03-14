@@ -4,7 +4,7 @@ section#book-notes {
   min-height: 100vh;
   padding: 10rem 25rem;
 
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-poppins);
   line-height: 1.25;
 
   #book-notes__info {

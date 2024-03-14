@@ -20,7 +20,7 @@ function BookCard({ book: { title, author } }: { book: Book }) {
   return (
     <article className="book-card">
       <div className="book__image">
-        <a href={bookLink(title)}>
+        <a href={bookLink(title)} aria-label={`Go to ${title} book notes.`}>
           <Image
             src={bookImgLink(title)}
             alt={`${title} book cover.`}
