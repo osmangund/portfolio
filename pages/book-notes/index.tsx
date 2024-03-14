@@ -1,13 +1,16 @@
-"use client"
-
 import "./Books.scss"
-import { books } from "../../utils/bookContents"
-import { useEffect } from "react"
-import { bookLink, bookImgLink } from "../../utils/links"
-import ArrowToRight from "../../components/icons/ArrowToRight"
-import { Input } from "../../components/Input/Form"
-import Form from "../../components/Input/Form"
-import Image from "../../components/Image/Image"
+import { bookContents as books } from "@/../content/bookContents"
+import { bookLink, bookImgLink } from "@/utils/links"
+import ArrowToRight from "@/components/icons/ArrowToRight"
+import { Input } from "@/components/Input/Form"
+import Form from "@/components/Input/Form"
+import Image from "@/components/Image/Image"
+import "@/index.css"
+import Nav from "@/components/Nav/Nav"
+
+// TODO: Add document.title -> "Book Notes | Osman G."
+// https://github.com/vercel/next.js/tree/deprecated-main/examples/layout-component
+// https://stackoverflow.com/questions/52170634/how-to-set-documents-title-per-page
 
 interface Book {
   title: string
@@ -35,11 +38,9 @@ function BookCard({ book: { title, author } }: { book: Book }) {
 }
 
 export default function BookNotes() {
-  useEffect(() => {
-    document.title = "Book Notes | Osman G."
-  }, [])
   return (
     <>
+      <Nav />
       <section id="book-notes">
         <div id="book-notes__info">
           <div className="container">

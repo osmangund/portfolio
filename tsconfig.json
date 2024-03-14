@@ -28,7 +28,10 @@
     "./src",
     "./dist/types/**/*.ts",
     "./next-env.d.ts",
-    "content/projectContents.js"
+    "content/projectContents.js",
+    "content/bookContents.js",
+    "pages",
+    "./pages"
   ],
   "exclude": ["./node_modules"]
 }
