@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import "../index.css"
 import { manrope, poppins, space_grotesk } from "@/utils/fonts"
-import Nav from "@/components/Nav/Nav"
 
 export const metadata: Metadata = {
   title: "Osman Emre Gundogdu",

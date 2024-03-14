@@ -14,8 +14,6 @@ export default function MyImage({ src, alt, ariaHidden = false }: ImageProps) {
     /\.jpg$/,
     "-small.jpg"
   )}`
-
-  console.log(src)
   return (
     <div className="image-wrapper">
       <Image

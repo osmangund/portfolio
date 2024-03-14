@@ -1,6 +1,4 @@
 // pages/_app.js
-import PropTypes from "prop-types"
-
 import "@/index.css" // Adjust the path to where your index.css is located
 import Nav from "@/components/Nav/Nav"
 import { AppProps } from "next/app"
@@ -16,9 +14,4 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </LazyMotion>
     </>
   )
-}
-
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
 }

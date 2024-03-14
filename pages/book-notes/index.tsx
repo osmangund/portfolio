@@ -11,12 +11,11 @@ import "@/index.css"
 // https://github.com/vercel/next.js/tree/deprecated-main/examples/layout-component
 // https://stackoverflow.com/questions/52170634/how-to-set-documents-title-per-page
 
-interface Book {
-  title: string
-  author: string
-}
-
-function BookCard({ book: { title, author } }: { book: Book }) {
+function BookCard({
+  book: { title, author },
+}: {
+  book: { title: string; author: string }
+}) {
   return (
     <article className="book-card">
       <div className="book__image">
