@@ -1,20 +1,26 @@
-import "./Books.scss"
-import PropTypes from "prop-types"
-import { books } from "./bookContents"
-import { useEffect } from "react"
-import { book, bookImg } from "../../../utils/links"
-import ArrowToRight from "../../icons/ArrowToRight"
-import { Input } from "../../Input/Form"
-import Form from "../../Input/Form"
-import Image from "../../Image/Image"
+"use client"
 
-function BookCard({ book: { title, author } }) {
+import "./Books.scss"
+import { books } from "../../utils/bookContents"
+import { useEffect } from "react"
+import { bookLink, bookImgLink } from "../../utils/links"
+import ArrowToRight from "../../components/icons/ArrowToRight"
+import { Input } from "../../components/Input/Form"
+import Form from "../../components/Input/Form"
+import Image from "../../components/Image/Image"
+
+interface Book {
+  title: string
+  author: string
+}
+
+function BookCard({ book: { title, author } }: { book: Book }) {
   return (
     <article className="book-card">
       <div className="book__image">
-        <a href={book(title)}>
+        <a href={bookLink(title)}>
           <Image
-            src={bookImg(title)}
+            src={bookImgLink(title)}
             alt={`${title} book cover.`}
             ariaHidden={true}
           />
@@ -28,9 +34,9 @@ function BookCard({ book: { title, author } }) {
   )
 }
 
-export default function BookNotes(props) {
+export default function BookNotes() {
   useEffect(() => {
-    document.title = props.title
+    document.title = "Book Notes | Osman G."
   }, [])
   return (
     <>
@@ -61,15 +67,4 @@ export default function BookNotes(props) {
       </section>
     </>
   )
-}
-
-BookCard.propTypes = {
-  book: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  }).isRequired,
-}
-
-BookNotes.propTypes = {
-  title: PropTypes.string,
 }

@@ -1,8 +1,15 @@
-import PropTypes from "prop-types"
+"use client"
 import "./Image.scss"
 import { useEffect } from "react"
+import Image from "next/image"
 
-export default function Image({ src, alt, ariaHidden = false }) {
+type ImageProps = {
+  src: string
+  alt: string
+  ariaHidden?: boolean
+}
+
+export default function MyImage({ src, alt, ariaHidden = false }: ImageProps) {
   let blurLoadImg = src.replace(/\.jpg$/, "-small.jpg")
 
   useEffect(() => {
@@ -12,10 +19,10 @@ export default function Image({ src, alt, ariaHidden = false }) {
       function loaded() {
         div.classList.add("loaded")
       }
-      if (img.complete) {
+      if (img?.complete) {
         loaded()
       } else {
-        img.addEventListener("load", loaded)
+        img?.addEventListener("load", loaded)
       }
     })
   })
@@ -25,13 +32,7 @@ export default function Image({ src, alt, ariaHidden = false }) {
       className="blur-load"
       style={{ backgroundImage: `url(${blurLoadImg})` }}
     >
-      <img src={src} alt={alt} aria-hidden={ariaHidden} loading="lazy" />
+      <Image src={src} alt={alt} aria-hidden={ariaHidden} loading="lazy" fill />
     </div>
   )
-}
-
-Image.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  ariaHidden: PropTypes.bool,
 }

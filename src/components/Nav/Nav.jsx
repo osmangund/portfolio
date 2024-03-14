@@ -1,9 +1,11 @@
+"use client"
+
 import { useEffect } from "react"
 import { Bars } from "../icons/Bars"
 import "./Nav.scss"
 import PropTypes from "prop-types"
-import { HashLink } from "react-router-hash-link"
 import { handleNavPage, handleNavSection } from "../../utils/links"
+import Link from "next/link"
 
 const navTitles = [
   { title: "Projects" },
@@ -34,15 +36,15 @@ const handleScroll = () => {
 const NavLink = ({ link: { title, navSection = true }, toggleMenu }) => {
   return navSection ? (
     <li>
-      <HashLink to={handleNavSection(title)} onClick={toggleMenu}>
+      <Link href={handleNavSection(title)} onClick={toggleMenu}>
         {title}
-      </HashLink>
+      </Link>
     </li>
   ) : (
     <li>
-      <HashLink to={handleNavPage(title)} onClick={toggleMenu}>
+      <Link href={handleNavPage(title)} onClick={toggleMenu}>
         {title}
-      </HashLink>
+      </Link>
     </li>
   )
 }

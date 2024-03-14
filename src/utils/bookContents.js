@@ -1,4 +1,4 @@
-export const books = [
+export const bookContents = [
   {
     id: 1,
     title: "The Power of Now",

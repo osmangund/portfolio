@@ -1,3 +1,5 @@
+"use client"
+
 import { GithubLogo } from "../../icons/Github"
 import { LinkedinLogo } from "../../icons/Linkedin"
 import "./Contact.scss"
@@ -127,7 +129,7 @@ export default function Contact() {
       <div id="contact__image">
         <Image
           alt="Chair, laptop, table and images on the wall. Two people work vibes atmosphere."
-          src="images/contact.jpg"
+          src="/images/contact.jpg"
         />
       </div>
       <Toaster position="top-right" />

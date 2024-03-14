@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
 import "./Projects.scss"
-import MacWindowEffect from "../../MacWindowEffect/MacWindowEffect"
-import { projectContents } from "../../../../projectContents"
-import { kebabCase } from "../../../utils/kebabCase"
+import MacWindowEffect from "@/components/MacWindowEffect/MacWindowEffect"
+import { projectContents } from "@/../content/projectContents"
+import { kebabCase } from "@/utils/kebabCase"
 import { motion } from "framer-motion"
-import { projectImg } from "../../../utils/links"
-import Image from "../../Image/Image"
+import { projectImgLink } from "@/utils/links"
+import Image from "@/components/Image/Image"
 
 const projectVariants = {
   initial: { opacity: 0, y: 100 },
@@ -19,7 +19,7 @@ const projectVariants = {
 function Project({
   project: { title, body, tags, color, liveGhPages = true, liveLink },
 }) {
-  const src = projectImg(title)
+  const src = projectImgLink(title)
   const liveHref = liveGhPages
     ? `https://osmangund.github.io/${kebabCase(title)}`
     : liveLink
@@ -38,6 +38,7 @@ function Project({
             src={src}
             alt={`${title} project screenshot.`}
             ariaHidden={true}
+            fill={true}
           />
         </a>
       </div>
