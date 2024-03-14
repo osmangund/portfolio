@@ -8,6 +8,14 @@ import { handleNavPage, handleNavSection } from "../../utils/links"
 import Link from "next/link"
 import { dance } from "@/utils/fonts"
 
+interface NavLinkProps {
+  link: {
+    title: string
+    navSection?: boolean
+  }
+  toggleMenu: () => void
+}
+
 const navTitles = [
   { title: "Projects" },
   { title: "Book Notes", navSection: false },
@@ -21,14 +29,17 @@ const handleScroll = () => {
     const currentScrollPos = window.scrollY
 
     prevScrollPos < currentScrollPos
-      ? nav.classList.add("hide")
-      : nav.classList.remove("hide")
+      ? nav?.classList.add("hide")
+      : nav?.classList.remove("hide")
 
     prevScrollPos = currentScrollPos
   })
 }
 
-const NavLink = ({ link: { title, navSection = true }, toggleMenu }) => {
+const NavLink = ({
+  link: { title, navSection = true },
+  toggleMenu,
+}: NavLinkProps) => {
   return navSection ? (
     <li>
       <Link href={handleNavSection(title)} onClick={toggleMenu}>
@@ -47,10 +58,14 @@ const NavLink = ({ link: { title, navSection = true }, toggleMenu }) => {
 export default function Nav() {
   const toggleMenu = () => {
     const nav = document.querySelector("nav")
-    const ul = nav.querySelector("ul")
-    const barsCheckbox = nav.querySelector("#bars-checkbox")
+    const ul = nav?.querySelector("ul")
+    const barsCheckbox = nav?.querySelector(
+      "#bars-checkbox"
+    ) as HTMLInputElement
     barsCheckbox.checked = false
-    ul.style.left = "100%"
+    if (ul) {
+      ul.style.left = "100%"
+    }
   }
 
   useEffect(() => {

@@ -1,10 +1,19 @@
 import { ShareLink } from "@/components/icons/ShareLink"
 import "./Book.scss"
-import propTypes from "prop-types"
+
+interface BookProps {
+  book: {
+    title: string
+    impressions: string
+    actionableSteps: string[]
+    quotes: string[]
+    date: string
+  }
+}
 
 export default function Book({
   book: { title, impressions, actionableSteps, quotes, date },
-}) {
+}: BookProps) {
   return (
     <section className="book-section">
       <article className="book">
@@ -35,14 +44,4 @@ export default function Book({
       </article>
     </section>
   )
-}
-
-Book.propTypes = {
-  book: propTypes.shape({
-    title: propTypes.string,
-    impressions: propTypes.string,
-    actionableSteps: propTypes.arrayOf(propTypes.string),
-    quotes: propTypes.arrayOf(propTypes.string),
-    date: propTypes.string,
-  }),
 }

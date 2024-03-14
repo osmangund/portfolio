@@ -1,7 +1,11 @@
 import "./Form.scss"
-import PropTypes from "prop-types"
 
-export function Input({ element = "input", name, label, type = "text" }) {
+export function Input({
+  element = "input",
+  name,
+  label,
+  type = "text",
+}: InputProps) {
   return (
     <div className="input">
       {element === "input" ? (
@@ -11,7 +15,6 @@ export function Input({ element = "input", name, label, type = "text" }) {
           id={name}
           required
           placeholder=" "
-          maxLength="40"
           className="input-field"
         />
       ) : (
@@ -20,7 +23,6 @@ export function Input({ element = "input", name, label, type = "text" }) {
           id={name}
           required
           placeholder=" "
-          maxLength="400"
           className="input-field"
         />
       )}
@@ -29,7 +31,12 @@ export function Input({ element = "input", name, label, type = "text" }) {
   )
 }
 
-export default function Form({ formRef, onSubmit, buttonValue, children }) {
+export default function Form({
+  formRef,
+  onSubmit,
+  buttonValue,
+  children,
+}: FormProps) {
   return (
     <form ref={formRef} onSubmit={onSubmit}>
       {children}
@@ -38,16 +45,16 @@ export default function Form({ formRef, onSubmit, buttonValue, children }) {
   )
 }
 
-Input.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  element: PropTypes.string,
+interface InputProps {
+  name: string
+  label: string
+  type?: string
+  element?: string
 }
 
-Form.propTypes = {
-  formRef: PropTypes.object,
-  onSubmit: PropTypes.func,
-  buttonValue: PropTypes.string,
-  children: PropTypes.node,
+interface FormProps {
+  formRef: React.RefObject<HTMLFormElement>
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  buttonValue: string
+  children: React.ReactNode
 }

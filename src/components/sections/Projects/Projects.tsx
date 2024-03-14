@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import "./Projects.scss"
 import MacWindowEffect from "@/components/MacWindowEffect/MacWindowEffect"
 import { projectContents } from "@/../content/projectContents"
@@ -6,6 +5,17 @@ import { kebabCase } from "@/utils/kebabCase"
 import { m } from "framer-motion"
 import { projectImgLink } from "@/utils/links"
 import Image from "@/components/Image/Image"
+
+interface ProjectProps {
+  project: {
+    title: string
+    body: string
+    tags: string[]
+    color?: string
+    liveGhPages?: boolean
+    liveLink?: string
+  }
+}
 
 const projectVariants = {
   initial: { opacity: 0, y: 100 },
@@ -18,7 +28,7 @@ const projectVariants = {
 
 function Project({
   project: { title, body, tags, color, liveGhPages = true, liveLink },
-}) {
+}: ProjectProps) {
   const src = projectImgLink(title)
   const liveHref = liveGhPages
     ? `https://osmangund.github.io/${kebabCase(title)}`
@@ -43,7 +53,6 @@ function Project({
             src={src}
             alt={`${title} project screenshot.`}
             ariaHidden={true}
-            fill={true}
           />
         </a>
       </div>
@@ -96,15 +105,4 @@ export default function Projects() {
       ))}
     </section>
   )
-}
-
-Project.propTypes = {
-  project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    color: PropTypes.string,
-    liveGhPages: PropTypes.bool,
-    liveLink: PropTypes.string,
-  }),
 }

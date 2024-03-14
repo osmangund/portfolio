@@ -1,14 +1,14 @@
 "use client"
 
-import { GithubLogo } from "../../icons/Github"
-import { LinkedinLogo } from "../../icons/Linkedin"
+import { GithubLogo } from "@/components/icons/Github"
+import { LinkedinLogo } from "@/components/icons/Linkedin"
 import "./Contact.scss"
 import { useRef } from "react"
 import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast"
-import { Input } from "../../Input/Form"
-import Form from "../../Input/Form"
-import Image from "../../Image/Image"
+import { Input } from "@/components/Input/Form"
+import Form from "@/components/Input/Form"
+import Image from "@/components/Image/Image"
 import { m } from "framer-motion"
 
 const sendSuccessMessage = () => {
@@ -54,22 +54,26 @@ const contactVariants = {
 
 const ContactForm = () => {
   const form = useRef()
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault()
 
-    emailjs
-      .sendForm("service_ezyym3u", "template_nveerrx", form.current, {
-        publicKey: "YwULCmPz0-uMpW_yr",
-      })
-      .then(
-        () => {
-          e.target.reset()
-          sendSuccessMessage()
-        },
-        () => {
-          sendErrorMessage()
-        }
-      )
+    const currentForm = form?.current as HTMLFormElement | undefined;
+
+    if (currentForm) {
+      emailjs
+        .sendForm("service_ezyym3u", "template_nveerrx", currentForm, {
+          publicKey: "YwULCmPz0-uMpW_yr",
+        })
+        .then(
+          () => {
+            e.target.reset()
+            sendSuccessMessage()
+          },
+          () => {
+            sendErrorMessage()
+          }
+        )
+    }
   }
 
   return (

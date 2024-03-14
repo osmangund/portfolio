@@ -15,7 +15,7 @@ const scrollIconVariants = {
       ease: "easeInOut",
       duration: 0.5,
       delay: delay,
-      repeatType: "reverse",
+      repeatType: "reverse" as const,
     },
   },
 }
