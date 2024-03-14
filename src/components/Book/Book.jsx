@@ -1,4 +1,4 @@
-import { ShareLink } from "../../../icons/ShareLink"
+import { ShareLink } from "@/components/icons/ShareLink"
 import "./Book.scss"
 import propTypes from "prop-types"
 

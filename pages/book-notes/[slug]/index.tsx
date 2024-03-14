@@ -1,15 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { kebabCase } from "@/utils/kebabCase"
 import { bookContents } from "@/../content/bookContents"
+import Book from "@/components/Book/Book"
+import "@/index.css"
 
 export default function BookPage({ book }: { book: any }) {
-  return (
-    <div>
-      <h1>{book.title}</h1>
-      <p>{book.description}</p>
-      {/* Add more book details here */}
-    </div>
-  )
+  return <Book book={book} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -23,7 +19,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug
   const book = bookContents.find((book) => kebabCase(book.title) === slug)
-  console.log(bookContents.find((book) => kebabCase(book.title) === slug))
 
   if (!book) {
     return {

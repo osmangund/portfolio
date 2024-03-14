@@ -6,7 +6,6 @@ import { Input } from "@/components/Input/Form"
 import Form from "@/components/Input/Form"
 import Image from "@/components/Image/Image"
 import "@/index.css"
-import Nav from "@/components/Nav/Nav"
 
 // TODO: Add document.title -> "Book Notes | Osman G."
 // https://github.com/vercel/next.js/tree/deprecated-main/examples/layout-component
@@ -40,7 +39,6 @@ function BookCard({ book: { title, author } }: { book: Book }) {
 export default function BookNotes() {
   return (
     <>
-      <Nav />
       <section id="book-notes">
         <div id="book-notes__info">
           <div className="container">
