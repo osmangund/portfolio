@@ -53,8 +53,8 @@ interface InputProps {
 }
 
 interface FormProps {
-  formRef: React.RefObject<HTMLFormElement>
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
-  buttonValue: string
-  children: React.ReactNode
+  formRef?: any
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void
+  buttonValue?: string
+  children?: React.ReactNode
 }
