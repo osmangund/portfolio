@@ -1,20 +1,27 @@
 import "./Books.scss"
-import PropTypes from "prop-types"
-import { books } from "./bookContents"
-import { useEffect } from "react"
-import { book, bookImg } from "../../../utils/links"
-import ArrowToRight from "../../icons/ArrowToRight"
-import { Input } from "../../Input/Form"
-import Form from "../../Input/Form"
-import Image from "../../Image/Image"
+import { bookContents as books } from "@/../content/bookContents"
+import { bookLink, bookImgLink } from "@/utils/links"
+import ArrowToRight from "@/components/icons/ArrowToRight"
+import { Input } from "@/components/Input/Form"
+import Form from "@/components/Input/Form"
+import Image from "@/components/Image/Image"
+import "@/index.css"
 
-function BookCard({ book: { title, author } }) {
+// TODO: Add document.title -> "Book Notes | Osman G."
+// https://github.com/vercel/next.js/tree/deprecated-main/examples/layout-component
+// https://stackoverflow.com/questions/52170634/how-to-set-documents-title-per-page
+
+function BookCard({
+  book: { title, author },
+}: {
+  book: { title: string; author: string }
+}) {
   return (
     <article className="book-card">
       <div className="book__image">
-        <a href={book(title)}>
+        <a href={bookLink(title)} aria-label={`Go to ${title} book notes.`}>
           <Image
-            src={bookImg(title)}
+            src={bookImgLink(title)}
             alt={`${title} book cover.`}
             ariaHidden={true}
           />
@@ -28,10 +35,7 @@ function BookCard({ book: { title, author } }) {
   )
 }
 
-export default function BookNotes(props) {
-  useEffect(() => {
-    document.title = props.title
-  }, [])
+export default function BookNotes() {
   return (
     <>
       <section id="book-notes">
@@ -61,15 +65,4 @@ export default function BookNotes(props) {
       </section>
     </>
   )
-}
-
-BookCard.propTypes = {
-  book: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  }).isRequired,
-}
-
-BookNotes.propTypes = {
-  title: PropTypes.string,
 }

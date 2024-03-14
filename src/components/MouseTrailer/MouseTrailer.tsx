@@ -1,7 +1,9 @@
+"use client"
+
 import { useEffect } from "react"
 import "./MouseTrailer.scss"
 
-const animateTrailer = (mousetrail, e) => {
+const animateTrailer = (mousetrail: any, e: any) => {
   const { clientX, clientY } = e
   if (document.documentElement.scrollWidth > 768) {
     mousetrail.animate(

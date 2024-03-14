@@ -1,12 +1,12 @@
 export const projectContents = [
   {
     title: "Fitness Website",
-    body: "Created reusable components that can further be used to improve this 111 Fitness Page or to create new fitness websites, by using React. Used styled-components to style the components and framer-motion to add animations. Works perfectly on mobile devices.",
+    body: "With using React, created reusable components that can further be used to improve this 111 Fitness Page or to create new fitness websites. Used styled-components to style the components and framer-motion to add animations. Works without an error on mobile devices.",
     tags: ["React", "styled-components", "framer-motion"],
   },
   {
     title: "Letters App",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum officia, earum quisquam modi labore quidem veniam accusantium totam maiores quos at distinctio, esse ipsum fugit aspernatur debitis nihil? Neque aperiam magni assumenda fugit dolore accusamus, explicabo similique dolorum quibusdam mollitia, reprehenderit quidem alias eum praesentium! ",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum officia, earum quisquam modi labore quidem veniam accusantium totam maiores quos at distinctio, esse ipsum fugit aspernatur debitis nihil?",
     tags: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
     liveGhPages: false,
     liveLink: "https://letters-app.vercel.app/",

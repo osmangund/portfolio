@@ -5,7 +5,7 @@ $mobile: 768px;
   min-height: 100vh;
   background-color: white;
   color: black;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--manrope);
   position: relative;
 
   #contact__info,
@@ -64,35 +64,13 @@ $mobile: 768px;
   }
   #contact__image {
     img {
-      width: 100%;
-      height: 100%;
-      max-height: 900px;
+      width: 100% !important;
+      height: 100% !important;
+      position: relative;
+
       object-fit: cover;
     }
   }
-  .form__info__card {
-    position: absolute;
-    right: 0;
-    bottom: 50%;
-
-    background-color: var(--background-color);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    h1,
-    p {
-      margin: 0;
-      line-height: 1.5;
-      letter-spacing: 0.5px;
-    }
-    h1 {
-      font-size: 4rem;
-    }
-    p {
-      font-size: 2rem;
-    }
-  }
-
   // Mobile
 
   @media (max-width: $mobile) {
@@ -103,6 +81,8 @@ $mobile: 768px;
     }
     #contact__image {
       height: 50vh;
+      max-height: 400px;
+
       img {
         object-position: center bottom;
       }
