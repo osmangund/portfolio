@@ -28,8 +28,8 @@
     "./src",
     "./dist/types/**/*.ts",
     "./next-env.d.ts",
-    "content/projectContents.js",
-    "content/bookContents.js",
+    "content/projectContents.tsx",
+    "content/bookContents.tsx",
     "pages",
     "./pages"
   ],
