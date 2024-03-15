@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import { kebabCase } from "@/utils/kebabCase"
 import { bookContents } from "@/../content/bookContents"
 import Book from "@/components/Book/Book"
-import "@/index.css"
 
 export default function BookPage({ book }: { book: any }) {
   return <Book book={book} />

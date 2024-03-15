@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import "../index.css"
+import "@/globals.css"
 import { manrope, poppins, space_grotesk } from "@/utils/fonts"
 
 export const metadata: Metadata = {
@@ -24,9 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div id="root">
-          {children}
-        </div>
+        <div id="root">{children}</div>
         <script type="module" src="/src/main.jsx"></script>
       </body>
     </html>

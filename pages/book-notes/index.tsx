@@ -5,7 +5,6 @@ import ArrowToRight from "@/components/icons/ArrowToRight"
 import { Input } from "@/components/Input/Form"
 import Form from "@/components/Input/Form"
 import Image from "@/components/Image/Image"
-import "@/index.css"
 
 // TODO: Add document.title -> "Book Notes | Osman G."
 // https://github.com/vercel/next.js/tree/deprecated-main/examples/layout-component
