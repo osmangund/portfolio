@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import { Bars } from "../icons/Bars"
 import "./Nav.scss"
-import PropTypes from "prop-types"
 import { handleNavPage, handleNavSection } from "../../utils/links"
 import Link from "next/link"
 import { dance } from "@/utils/fonts"
@@ -88,12 +87,4 @@ export default function Nav() {
       </ul>
     </nav>
   )
-}
-
-NavLink.propTypes = {
-  link: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    navSection: PropTypes.bool,
-  }).isRequired,
-  toggleMenu: PropTypes.func,
 }
