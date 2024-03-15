@@ -5,7 +5,7 @@ import { Bars } from "../icons/Bars"
 import "./Nav.scss"
 import { handleNavPage, handleNavSection } from "../../utils/links"
 import Link from "next/link"
-import { dance } from "@/utils/fonts"
+import { dance, manrope } from "@/utils/fonts"
 
 interface NavLinkProps {
   link: {
@@ -72,7 +72,7 @@ export default function Nav() {
   }, [])
 
   return (
-    <nav>
+    <nav className={manrope.variable}>
       <a id="logo" href="/" className={dance.variable}>
         OG.
       </a>
